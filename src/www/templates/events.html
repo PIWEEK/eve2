@@ -1,0 +1,25 @@
+<div ng-controller="EventsCtrl as eventsCtrl">
+
+
+    <div class="row">
+      <header class="full block">
+        <div class="eve-logo inline-block"><a href="#"><img src="../images/eve-text.png" border="0"></a></div>
+        <div class="eve-icon inline-block"><img src="../images/eve.svg" border="0"></div>
+        <input type="text" placeholder="Search an event" class="search right">
+      </header>
+      <div class="content">
+        <section class="home-grid full block">
+          <h1 class="full">Next events</h1>
+            <div ng-repeat="event in eventsCtrl.eventList" class="event-home inline-block" ng-class="$first ? 'half' : 'quarter'">
+              <div class="event-home-info"><a href="###">{{event.name}}</a><span class="event-home-date">{{event.date}} - {{event.place}}</span></div><a href="#"><img src="{{event.logo}}" border="0"></a>
+            </div>
+        </section>
+      </div>
+      <footer>
+        <p><span>eveapp ©2014 |</span><a href="#">Log In</a>
+          <p class="sign"><span>Made with <i class="icon-heart"></i> at the <a href="http://piweek.com" target="_blank">Piweek</a></span></p>
+        </p>
+      </footer>
+    </div>
+
+</div>

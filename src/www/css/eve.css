@@ -1,0 +1,718 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: #5fbcd3;
+}
+a:hover {
+  text-decoration: none;
+  color: #164450;
+}
+
+p {
+  margin-bottom: 12px;
+}
+
+h1 {
+  font-size: 1.8em;
+  font-weight: lighter;
+  color: #93a7ac;
+  padding: 0.6em 0 1em 0;
+}
+
+h2 {
+  font-size: 1.5em;
+  font-weight: lighter;
+  color: #93a7ac;
+  padding: 0.6em 0 1em 0;
+}
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.inline {
+  display: inline;
+}
+
+.hide {
+  display: none;
+}
+
+.right {
+  float: right;
+}
+
+.left {
+  float: left;
+}
+
+.translate-3d-menu {
+  -webkit-transform: translate3d(-70%, 0, 0);
+  -moz-transform: translate3d(-70%, 0, 0);
+  -o-transform: translate3d(-70%, 0, 0);
+  -ms-transform: translate3d(-70%, 0, 0);
+  transform: translate3d(-70%, 0, 0);
+}
+
+.translate-3d-menu-left {
+  -webkit-transform: translate3d(70%, 0, 0);
+  -moz-transform: translate3d(70%, 0, 0);
+  -o-transform: translate3d(70%, 0, 0);
+  -ms-transform: translate3d(70%, 0, 0);
+  transform: translate3d(70%, 0, 0);
+}
+
+.full {
+  width: 100%;
+}
+
+.half {
+  width: 49.3%;
+}
+
+.third {
+  width: 32%;
+}
+
+.quarter {
+  width: 24.5%;
+}
+
+.last {
+  margin-right: 0 !important;
+}
+
+::selection {
+  background: #5fbcd3;
+  text-shadow: none;
+  color: white;
+}
+
+::-moz-selection {
+  background: #5fbcd3;
+  text-shadow: none;
+  color: white;
+}
+
+input.search {
+  border: 1px solid #dbe2e3;
+  padding: 0.8em;
+  font-size: 1em;
+  color: #006680;
+  outline: 0;
+  font-weight: lighter;
+}
+input.search::-webkit-input-placeholder {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: lighter;
+  color: #dbe2e3;
+}
+input.search:-moz-placeholder {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: lighter;
+  color: #dbe2e3;
+}
+input.search::-moz-placeholder {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: lighter;
+  color: #dbe2e3;
+}
+input.search:-ms-input-placeholder {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: lighter;
+  color: #dbe2e3;
+}
+input.search:focus {
+  border: 1px solid #5fbcd3;
+}
+input.search:focus::-webkit-input-placeholder {
+  color: #5fbcd3;
+}
+input.search:focus:-moz-placeholder {
+  color: #5fbcd3;
+}
+input.search:focus::-moz-placeholder {
+  color: #5fbcd3;
+}
+input.search:focus:-ms-input-placeholder {
+  color: #5fbcd3;
+}
+
+.tagline {
+  display: inline-block;
+  width: 100%;
+}
+.tagline .tag {
+  display: inline-block;
+  margin-right: 4px;
+  background-color: #9bd5e3;
+  color: #164450;
+  padding: 0.3em 1em;
+}
+.tagline .tag.tag-green {
+  border-left: 8px solid #37c8ab;
+}
+.tagline .tag.tag-pink {
+  border-left: 8px solid #ff5599;
+}
+.tagline .tag.tag-cyan {
+  border-left: 8px solid #80e5ff;
+}
+.tagline .tag.tag-lime {
+  border-left: 8px solid #d4ff2a;
+}
+.tagline .tag.tag-purple {
+  border-left: 8px solid #b380ff;
+}
+.tagline .tag.tag-yellow {
+  border-left: 8px solid #ffdd55;
+}
+.tagline .tag.tag-red {
+  border-left: 8px solid #ff2a2a;
+}
+.tagline .tag.tag-brown {
+  border-left: 8px solid #916f6f;
+}
+.tagline .tag.tag-orange {
+  border-left: 8px solid #ff7f2a;
+}
+.tagline .tag.tag-black {
+  border-left: 8px solid #1c2422;
+}
+
+.overlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: none;
+}
+
+.modal {
+  display: none;
+  background: white;
+  padding: 0 20px 20px;
+  overflow: auto;
+  z-index: 1001;
+  position: absolute;
+  width: 600px;
+  min-height: 300px;
+}
+.modal .closeBtn {
+  float: right;
+  margin: 15px 0 0 0;
+}
+.modal h2.modal-title {
+  color: #5fbcd3;
+}
+.modal .modal-speaker {
+  color: #006680;
+  margin-bottom: 12px;
+}
+.modal .modal-share {
+  width: 100%;
+  text-align: center;
+}
+.modal .modal-share i {
+  font-size: 2em;
+}
+.modal .modal-share i.icon-twitter {
+  color: #00aced;
+}
+
+.bg-white {
+  background-color: white;
+}
+
+.bg-darkblue {
+  background-color: #164450;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+body {
+  line-height: 1.5;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 500;
+  color: #93a7ac;
+  background-color: white;
+  -webkit-font-smoothing: antialiased;
+}
+
+header {
+  padding: 1em;
+  border-bottom: 1px solid #dbe2e3;
+  height: 90px;
+}
+header .eve-logo a img {
+  width: 160px;
+}
+header .eve-logo a:hover {
+  opacity: 0.6;
+}
+header .eve-icon {
+  position: absolute;
+  left: 48%;
+}
+header .eve-icon img {
+  width: 60px;
+}
+header input.search {
+  width: 100%;
+  max-width: 300px;
+}
+
+.content {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+.content h1 {
+  text-align: center;
+}
+.content .home-grid .event-home {
+  position: relative;
+  vertical-align: top;
+  margin-bottom: 0.3em;
+  margin-right: 0.3%;
+  padding-bottom: 24.5%;
+  overflow: hidden;
+  height: 0;
+  background-color: #5fbcd3;
+}
+.content .home-grid .event-home img {
+  position: absolute;
+  margin: -8% 0 0 -5%;
+  height: 130%;
+  width: auto;
+}
+.content .home-grid .event-home.quarter img {
+  margin: -8% 0 0 -8%;
+  height: 140%;
+}
+.content .home-grid .event-home .event-home-info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1em;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 2;
+}
+.content .home-grid .event-home .event-home-info:hover {
+  background-color: rgba(95, 188, 211, 0.8);
+  padding-top: 100%;
+}
+.content .home-grid .event-home .event-home-info a {
+  color: white;
+  font-weight: 500;
+  font-size: 1.4em;
+  display: block;
+}
+.content .home-grid .event-home .event-home-info a:hover {
+  color: #1f1f1f;
+}
+.content .home-grid .event-home .event-home-info .event-home-date {
+  display: block;
+  color: white;
+}
+.content .event-content {
+  position: relative;
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+}
+.content .event-content .event-header {
+  background-color: white;
+  padding: 0;
+}
+.content .event-content .event-header.f-event-header {
+  width: 100%;
+  position: fixed;
+  padding-top: 20px;
+  height: 70px;
+  top: 0;
+  left: 0;
+  background-color: white;
+  border: 1px solid #dbe2e3;
+  z-index: 3;
+}
+.content .event-content .event-header nav.event-nav {
+  width: 100%;
+}
+.content .event-content .event-header nav.event-nav ul li {
+  list-style: none;
+  display: inline-block;
+  text-align: center;
+  width: 24%;
+}
+.content .event-content .event-header nav.event-nav ul li a {
+  display: inline-block;
+  color: #93a7ac;
+  font-size: 1.2em;
+  margin: 0 2em 2em 2em;
+}
+.content .event-content .event-header nav.event-nav ul li a:hover {
+  color: #5fbcd3;
+}
+.content .event-content .event-header nav.event-nav ul li a.current {
+  color: #164450;
+}
+.content .event-content .event-header #event-nav-icon {
+  display: none;
+  font-size: 2em;
+  margin: 15px 6px 0 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+.content .event-content .event-header #talks-nav-icon {
+  font-size: 2em;
+  margin: 20px 0 0 6px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+.content .event-content nav.event-mobile {
+  display: none;
+  position: fixed;
+  background-color: #164450;
+  top: 0;
+  right: -70%;
+  width: 70%;
+  height: 1500px;
+  z-index: 990;
+}
+.content .event-content nav.event-mobile ul {
+  width: 100%;
+}
+.content .event-content nav.event-mobile ul li {
+  width: 100%;
+  display: block;
+  border-bottom: 1px solid #1f5f70;
+  text-align: right;
+  font-size: 1.4em;
+  font-weight: lighter;
+}
+.content .event-content nav.event-mobile ul li a {
+  color: #dbe2e3;
+  width: 100%;
+  padding: 15px;
+  display: block;
+}
+.content .event-content nav.event-mobile ul li a:hover {
+  background-color: #5fbcd3;
+  color: white;
+}
+.content .event-content nav.event-mobile ul .icon-eve {
+  width: 40%;
+  margin: 10px 33%;
+  cursor: pointer;
+}
+.content .event-content nav.talks-mobile {
+  display: none;
+  position: fixed;
+  background-color: #164450;
+  top: 0;
+  left: -70%;
+  width: 70%;
+  height: 1500px;
+  z-index: 990;
+}
+.content .event-content nav.talks-mobile ul {
+  width: 100%;
+}
+.content .event-content nav.talks-mobile ul li {
+  width: 100%;
+  display: block;
+  border-bottom: 1px solid #1f5f70;
+  text-align: left;
+  font-size: 1.4em;
+  font-weight: lighter;
+}
+.content .event-content nav.talks-mobile ul li a {
+  color: #dbe2e3;
+  width: 100%;
+  padding: 15px;
+  display: block;
+}
+.content .event-content nav.talks-mobile ul li a:hover {
+  background-color: #5fbcd3;
+  color: white;
+}
+.content .event-content nav.talks-mobile ul .talks-img-menu {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 40%;
+  overflow: hidden;
+}
+.content .event-content nav.talks-mobile ul .talks-img-menu img {
+  position: absolute;
+}
+.content .event-content nav.talks-mobile ul .talks-img-menu .talks-mobile-info {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 1em;
+  height: 100%;
+  background-color: rgba(95, 188, 211, 0.6);
+  z-index: 2;
+}
+.content .event-content nav.talks-mobile ul .talks-img-menu .talks-mobile-info p {
+  color: white;
+  font-weight: 500;
+}
+.content .event-content nav.talks-mobile .event-img {
+  width: 100%;
+}
+.content .event-content nav.talks-mobile .event-text {
+  color: #769096;
+  text-align: justify;
+  margin: 2em 0 0 0;
+  padding: 0.6em;
+}
+.content .event-content .talks-track-title {
+  width: 100%;
+  text-align: center;
+  line-height: 1;
+  background-color: #5fbcd3;
+  border-top: 30px solid #5fbcd3;
+  border-bottom: 30px solid #5fbcd3;
+  border-left: 10px solid white;
+  border-right: 10px solid white;
+  line-height: 0;
+}
+.content .event-content .talks-track-title h2 {
+  color: white;
+  padding: 0;
+}
+.content .event-content .talks-day-title {
+  width: 100%;
+  text-align: center;
+  margin: 8px 0;
+  font-size: 4em;
+}
+.content .event-content .talks-day-title h3 {
+  color: #b7e1eb;
+}
+.content .event-content .talks-row {
+  width: 100%;
+  border-bottom: 1px solid #dbe2e3;
+  max-height: 150px;
+  position: relative;
+}
+.content .event-content .talks-row .talks-row-hour {
+  text-align: center;
+  display: inline-block;
+  background-color: #dbe2e3;
+  color: #93a7ac;
+  padding: 1em 3.5%;
+  font-size: 2em;
+  font-weight: 700;
+}
+.content .event-content .talks-row .talks-row-content {
+  display: inline-block;
+  padding: 2%;
+  width: 60%;
+}
+.content .event-content .talks-row .talks-row-content .talk-title {
+  display: block;
+  font-size: 1.4em;
+  color: #006680;
+}
+.content .event-content .talks-row .talks-row-content .talk-speaker {
+  display: block;
+  color: #5fbcd3;
+}
+.content .event-content .talks-row .talks-row-content .talk-location {
+  display: block;
+}
+.content .event-content .talks-row .talks-row-btn {
+  position: absolute;
+  top: 25%;
+  right: 10px;
+  padding: 1.8% 1.9%;
+  border-radius: 50%;
+  border: 1px solid #b6c3c7;
+  line-height: 1;
+  cursor: pointer;
+}
+.content .event-content .talks-row .talks-row-btn i {
+  color: #b6c3c7;
+}
+.content .event-content .talks-row .talks-row-btn:hover {
+  border: 1px solid #5fbcd3;
+  background-color: #5fbcd3;
+}
+.content .event-content .talks-row .talks-row-btn:hover i {
+  color: white;
+}
+
+footer {
+  margin-top: 2em;
+  color: #93a7ac;
+  text-align: center;
+  padding: 1.6em;
+  border-top: 1px solid #dbe2e3;
+}
+footer .sign {
+  font-size: 0.8em;
+}
+footer .sign i {
+  color: tomato;
+}
+footer .sign a {
+  color: #b380ff;
+}
+
+@media only screen and (max-width: 48em) {
+  header {
+    padding: 0.6em;
+    height: 70px;
+  }
+  header .eve-logo > a > img {
+    width: 140px;
+  }
+  header .eve-icon {
+    display: none;
+  }
+  header input.search {
+    width: 52%;
+  }
+
+  .half {
+    width: 100%;
+  }
+
+  .third {
+    width: 49.35%;
+  }
+
+  .quarter {
+    width: 32.5%;
+  }
+
+  .content {
+    padding: 0.3em;
+  }
+  .content .home-grid > .event-home {
+    padding-bottom: 33%;
+  }
+  .content .home-grid > .event-home.half {
+    padding-bottom: 49%;
+  }
+  .content .home-grid > .event-home .event-home-info {
+    font-size: 0.8em;
+  }
+  .content .event-content .event-header .event-nav {
+    display: none;
+  }
+  .content .event-content .event-header #event-nav-icon {
+    display: block;
+  }
+  .content .event-content .event-text {
+    font-size: 0.9em;
+  }
+  .content .talks-row {
+    font-size: 0.8em;
+  }
+
+  .modal {
+    width: 450px;
+  }
+}
+@media only screen and (max-width: 30em) {
+  header .eve-logo > a > img {
+    width: 120px;
+    margin-top: 8px;
+  }
+
+  .third {
+    width: 100%;
+  }
+
+  .quarter {
+    width: 49.2%;
+  }
+
+  .content > .home-grid > .event-home {
+    padding-bottom: 49.35%;
+  }
+
+  .content .event-content .talks-day-title {
+    font-size: 3em;
+  }
+  .content .event-content .talks-row .talks-row-hour {
+    font-size: 1.5em;
+    vertical-align: top;
+  }
+  .content .event-content .talks-row .talks-row-content .talk-title {
+    font-size: 1.2em;
+  }
+
+  .modal {
+    width: 320px;
+    font-size: 0.8em;
+  }
+}
