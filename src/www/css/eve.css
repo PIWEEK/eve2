@@ -339,6 +339,20 @@ header input.search {
   height: 0;
   background-color: #5fbcd3;
 }
+
+
+/****** EXTRA *******/
+.content .home-grid .event-home:not(.ng-hide) {
+  width: 49.3%;
+}
+
+.content .home-grid .event-home:not(.ng-hide) ~ .event-home {
+  width: 24.5%;
+}
+/*******************/
+
+
+
 .content .home-grid .event-home img {
   position: absolute;
   margin: -8% 0 0 -5%;
@@ -653,6 +667,16 @@ footer .sign a {
     width: 32.5%;
   }
 
+  /****** EXTRA *******/
+  .content .home-grid .event-home:not(.ng-hide) {
+    width: 65.5%;
+  }
+
+  .content .home-grid .event-home:not(.ng-hide) ~ .event-home {
+    width: 32.5%;
+  }
+  /*******************/
+
   .content {
     padding: 0.3em;
   }
@@ -695,6 +719,16 @@ footer .sign a {
   .quarter {
     width: 49.2%;
   }
+
+  /****** EXTRA *******/
+  .content .home-grid .event-home:not(.ng-hide) {
+    width: 100%;
+  }
+
+  .content .home-grid .event-home:not(.ng-hide) ~ .event-home {
+    width: 49.2%;
+  }
+  /*******************/
 
   .content > .home-grid > .event-home {
     padding-bottom: 49.35%;

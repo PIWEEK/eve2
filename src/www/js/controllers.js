@@ -1,6 +1,22 @@
 angular.module('controllers', [])
 
-.controller("EventsCtrl",function(){
-  this.eventsString='[{"name":"Greach", "date":"01/01/2016", "place":"Madrid", "logo":"../images/2x1.png"},{"name":"Codemotion", "date":"13/07/2016", "place":"Barcelona", "logo":"../images/2x1.png"},{"name":"Pycon", "date":"09/11/2016", "place":"Zaragoza", "logo":"../images/2x1.png"},{"name":"Greach", "date":"01/01/2016", "place":"Madrid", "logo":"../images/2x1.png"},{"name":"Codemotion", "date":"13/07/2016", "place":"Barcelona", "logo":"../images/2x1.png"},{"name":"Pycon", "date":"09/11/2016", "place":"Zaragoza", "logo":"../images/2x1.png"},{"name":"Greach", "date":"01/01/2016", "place":"Madrid", "logo":"../images/2x1.png"},{"name":"Codemotion", "date":"13/07/2016", "place":"Barcelona", "logo":"../images/2x1.png"},{"name":"Pycon", "date":"09/11/2016", "place":"Zaragoza", "logo":"../images/2x1.png"},{"name":"Greach", "date":"01/01/2016", "place":"Madrid", "logo":"../images/2x1.png"},{"name":"Codemotion", "date":"13/07/2016", "place":"Barcelona", "logo":"../images/2x1.png"},{"name":"Pycon", "date":"09/11/2016", "place":"Zaragoza", "logo":"../images/2x1.png"},{"name":"Greach", "date":"01/01/2016", "place":"Madrid", "logo":"../images/2x1.png"},{"name":"Codemotion", "date":"13/07/2016", "place":"Barcelona", "logo":"../images/2x1.png"},{"name":"Pycon", "date":"09/11/2016", "place":"Zaragoza", "logo":"../images/2x1.png"}]';
-  this.eventList = JSON.parse(this.eventsString);;
-})
+.controller("EventsCtrl",['$scope', 'dataService', function($scope, dataService){
+  this.init = function() {
+    var controller = this;
+    dataService.getEventList().then(function(data) {
+      controller.eventList = data;
+      controller.filteredEvents = controller.eventList;
+    });
+
+    this.filter = '';
+  }
+
+  this.hideEvent = function(event){
+    return (this.filter !== '') && (event.name.toLowerCase().indexOf(this.filter.toLowerCase()) < 0);
+  }
+
+  this.init();
+
+
+
+}])

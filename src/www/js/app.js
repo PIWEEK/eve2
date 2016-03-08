@@ -1,10 +1,16 @@
+// TODO: Only for develop
+window.localStorage['eventList'] = '[{"name":"Greach", "date":"01/01/2016", "place":"Madrid", "logo":"http://blog.engineering.ticketbis.com/content/images/2015/06/greach.jpg"},{"name":"Codemotion", "date":"13/07/2016", "place":"Barcelona", "logo":"images/codemotion.jpg"},{"name":"Pycon", "date":"09/11/2016", "place":"Zaragoza", "logo":"images/pycon.jpg"},{"name":"Greach", "date":"01/01/2016", "place":"Madrid", "logo":"http://blog.engineering.ticketbis.com/content/images/2015/06/greach.jpg"},{"name":"Codemotion", "date":"13/07/2016", "place":"Barcelona", "logo":"images/codemotion.jpg"},{"name":"Pycon", "date":"09/11/2016", "place":"Zaragoza", "logo":"images/pycon.jpg"},{"name":"Greach", "date":"01/01/2016", "place":"Madrid", "logo":"http://blog.engineering.ticketbis.com/content/images/2015/06/greach.jpg"},{"name":"Codemotion", "date":"13/07/2016", "place":"Barcelona", "logo":"images/codemotion.jpg"},{"name":"Pycon", "date":"09/11/2016", "place":"Zaragoza", "logo":"images/pycon.jpg"},{"name":"Greach", "date":"01/01/2016", "place":"Madrid", "logo":"http://blog.engineering.ticketbis.com/content/images/2015/06/greach.jpg"},{"name":"Codemotion", "date":"13/07/2016", "place":"Barcelona", "logo":"images/codemotion.jpg"},{"name":"Pycon", "date":"09/11/2016", "place":"Zaragoza", "logo":"images/pycon.jpg"}]';
+
+
+
+
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 
-angular.module('eveApp', ['ionic', 'controllers'])
+angular.module('eveApp', ['ionic', 'services', 'controllers'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
