@@ -10,6 +10,6 @@ tmux send-keys -t eve 'ionic serve --all --port 8100 --livereload-port 35729' C-
 tmux rename-window -t eve:0 'layout'
 tmux select-window -t eve:0
 tmux send-keys -t eve 'cd app' C-m
-tmux send-keys -t eve 'npm install && bower install && gulp' C-m
+tmux send-keys -t eve 'npm install && bower install && gulp watch' C-m
 
 tmux -2 attach-session -t eve
