@@ -10,6 +10,6 @@ tmux send-keys -t eve 'ionic serve' C-m
 tmux rename-window -t eve:0 'layout'
 tmux select-window -t eve:0
 tmux send-keys -t eve 'cd app' C-m
-tmux send-keys -t eve 'npm install && gulp' C-m
+tmux send-keys -t eve 'npm install && bower install && gulp' C-m
 
 tmux -2 attach-session -t eve

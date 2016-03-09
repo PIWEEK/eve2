@@ -25,7 +25,7 @@ RUN apt-get update && apt-get install -yq \
 RUN mkdir -p /opt/nodejs && \
           curl https://nodejs.org/dist/v5.5.0/node-v5.5.0-linux-x64.tar.xz | tar Jx -C /opt/nodejs --strip-components=1 && \
           ln -s /opt/nodejs/bin/node /usr/local/bin/node && ln -s /opt/nodejs/bin/npm /usr/local/bin/npm && \
-          /opt/nodejs/bin/npm install -g ionic gulp
+          /opt/nodejs/bin/npm install -g ionic gulp bower
 
 # Change user
 USER user
