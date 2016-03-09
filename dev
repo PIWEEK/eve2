@@ -1,0 +1,41 @@
+#!/bin/bash
+set -e
+
+IMGNAME=eve/dev
+
+# COLORS
+BOLD="\e[1m"
+RESET="\e[0m"
+
+function usage {
+    echo "USAGE $0 [ build | enter ]"
+    echo ""
+    echo "COMMANDS"
+    echo "  build: runs docker build command to create ${IMGNAME} image"
+    echo "  enter: runs development environment"
+}
+
+function build_docker_image {
+    echo -e "=> Building ${IMGNAME} ${BOLD}docker image${RESET}"
+    docker build -t $IMGNAME docker
+}
+
+function run_development_environment {
+    docker run -it \
+           -v `pwd`/src:/home/user/app \
+           -p 8100:8100 \
+           -p 35729:35729 \
+           $IMGNAME
+}
+
+case $1 in
+    build)
+        build_docker_image
+        ;;
+    enter)
+        run_development_environment
+        ;;
+    *)
+        usage
+        ;;
+esac
