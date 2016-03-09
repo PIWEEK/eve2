@@ -31,10 +31,10 @@ RUN mkdir -p /opt/nodejs && \
 USER user
 WORKDIR /home/user
 RUN echo "export PATH=/opt/nodejs/bin:$PATH" >> ~/.bashrc
-COPY dev-entrypoint.sh .
+COPY entrypoint.sh .
 
 # PORTS
 EXPOSE 8100
 EXPOSE 35729
 
-CMD ./dev-entrypoint.sh
+CMD ./entrypoint.sh
