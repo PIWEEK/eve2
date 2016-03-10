@@ -17,6 +17,7 @@ RUN useradd user -d /home/user -s /bin/bash && cp -r /etc/skel /home/user && cho
 RUN apt-get update && apt-get install -yq \
                                       tmux \
                                       vim \
+                                      git \
                                       xz-utils \
                                       curl \
                                       rlwrap
