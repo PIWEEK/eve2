@@ -29,10 +29,15 @@ angular.module('controllers', [])
 
 .controller("EventDetailCtrl",['$scope', '$location', 'dataService', 'eventsService', function($scope, $location, dataService, eventsService){
   this.init = function() {
+    this.locationURL = "";
     var controller = this;
     dataService.getEventDetail(eventsService.currentEvent).then(function(data) {
       controller.eventDetail = data;
     });
+  }
+
+  this.navigateTo = function(url){
+    $location.path(url);
   }
 
   this.init();

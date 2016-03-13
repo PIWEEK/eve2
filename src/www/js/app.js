@@ -46,6 +46,11 @@ angular.module('eveApp', ['ionic', 'services', 'controllers'])
     templateUrl: "templates/eventDetail.html",
   })
 
+  .state('eventLocation', {
+    url: "/eventLocation",
+    templateUrl: "templates/eventLocation.html",
+  })
+
   $urlRouterProvider.otherwise('/events');
 
 });

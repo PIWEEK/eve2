@@ -67,5 +67,4 @@ angular.module('services', [])
 
 .service('eventsService', [function() {
   this.currentEvent = {};
-
 }]);

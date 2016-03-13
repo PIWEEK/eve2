@@ -14,29 +14,30 @@
             <h1 class="full">{{eventDetailCtrl.eventDetail.name}}</h1>
             <nav class="event-nav">
               <ul>
-                <li><a href="#" class="current">Info</a></li>
+                <li><a href="#" ng-click="eventDetailCtrl.navigateTo('/eventDetail')">Info</a></li>
                 <li><a href="event-talks.html">Talks</a></li>
                 <li><a href="event-speakers.html">Speakers</a></li>
-                <li><a href="#" ng-click="eventDetailCtrl.navigateTo('/eventLocation')">Location</a></li>
+                <li><a href="#" class="current">Location</a></li>
               </ul>
             </nav><i id="event-nav-icon" class="icon-menu"></i>
           </div>
           <nav class="event-mobile">
             <ul>
               <li><img src="images/eve.svg" border="0" class="icon-eve"></li>
-              <li><a href="#" class="current">Info</a></li>
+              <li><a href="/eventDetail">Info</a></li>
               <li><a href="event-talks.html">Talks</a></li>
               <li><a href="event-speakers.html">Speakers</a></li>
-              <li><a href="/eventLocation">Location</a></li>
+              <li><a href="#" class="current">Location</a></li>
             </ul>
           </nav>
-          <div class="event-img"><img ng-src="{{eventDetailCtrl.eventDetail.logo}}"></div>
-          <div class="event-text">
-            <p ng-repeat="text in eventDetailCtrl.eventDetail.text">{{text}}</p>
+
+          <div class="event-location-img"><img ng-src="{{eventDetailCtrl.eventDetail.location.img}}"></div>
+          <div class="event-location-text">
+            <p>&nbsp;<p>
+            <p>{{eventDetailCtrl.eventDetail.location.text}}</p>
           </div>
-          <div class="tagline">
-            <div ng-repeat="tag in eventDetailCtrl.eventDetail.tags" class="tag" style="border-left: 8px solid {{tag.color}};">{{tag.tag}}</div>
-          </div>
+
+
         </section>
       </div>
     </div>
