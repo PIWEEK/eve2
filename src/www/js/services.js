@@ -2,6 +2,8 @@
 angular.module('services', [])
 
 .service('dataService', ['$http', '$q',function($http, $q) {
+  this.eventsURL = 'http://eveapp.top/api/v1/events.js';
+  this.eventDetailURL = 'http://eveapp.top/api/v1/event/_id_/.js';
 
   this.eventList = {};
   this.getEventList = function() {
@@ -9,14 +11,9 @@ angular.module('services', [])
     var deferred = $q.defer();
 
     // Try to load from API
-    $http.get('http://eveapp.top/api/v1/events')
-      .success(function (data) {
-        var json = {};
-        try {
-          json = JSON.parse(data);
-        } catch(e){
-          json = service.loadEventList();
-        }				
+    $http.get(this.eventsURL)
+      .success(function (json) {
+        console.log(json);
         service.saveEventList(json);
         deferred.resolve(json);
       })
