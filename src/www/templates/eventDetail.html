@@ -1,0 +1,45 @@
+<div ng-controller="EventDetailCtrl as eventDetailCtrl">
+
+
+    <div class="row">
+      <header class="full block">
+        <div class="eve-logo inline-block"><a href="#"><img src="images/eve-text.png" border="0"></a></div>
+        <div class="eve-icon inline-block"><img src="images/eve.svg" border="0"></div>        
+      </header>
+    </div>
+    <div class="row">
+      <div class="content">
+        <section class="event-content">
+          <div class="event-header"><i id="talks-nav-icon" class="icon-bubbles"></i>
+            <h1 class="full">{{eventDetailCtrl.eventDetail.name}}</h1>
+            <nav class="event-nav">
+              <ul>
+                <li><a href="event.html" class="current">Info</a></li>
+                <li><a href="event-talks.html">Talks</a></li>
+                <li><a href="event-speakers.html">Speakers</a></li>
+                <li><a href="event-location.html">Location</a></li>
+              </ul>
+            </nav><i id="event-nav-icon" class="icon-menu"></i>
+          </div>
+          <nav class="event-mobile">
+            <ul>
+              <li><img src="images/eve.svg" border="0" class="icon-eve"></li>
+              <li><a href="event.html" class="current">Info</a></li>
+              <li><a href="event-talks.html">Talks</a></li>
+              <li><a href="event-speakers.html">Speakers</a></li>
+              <li><a href="event-location.html">Location</a></li>
+            </ul>
+          </nav>
+          <div class="event-img"><img ng-src="{{eventDetailCtrl.eventDetail.logo}}"></div>
+          <div class="event-text">
+            <p ng-repeat="text in eventDetailCtrl.eventDetail.text">{{text}}</p>
+          </div>
+          <div class="tagline">
+            <div ng-repeat="tag in eventDetailCtrl.eventDetail.tags" class="tag" style="border-left: 8px solid {{tag.color}};">{{tag.tag}}</div>
+          </div>
+        </section>
+      </div>
+    </div>
+    <ng-include src="'includes/footer.html'" />
+
+</div>

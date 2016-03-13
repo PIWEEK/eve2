@@ -340,6 +340,16 @@ header input.search {
   background-color: #5fbcd3;
 }
 
+/****** FOR IONIC CONFLICT *******/
+
+.pane {
+  overflow-y:scroll;
+}
+
+/*******************/
+
+
+
 
 /****** EXTRA *******/
 .content .home-grid .event-home:not(.ng-hide) {
@@ -629,6 +639,7 @@ footer {
   text-align: center;
   padding: 1.6em;
   border-top: 1px solid #dbe2e3;
+  width:100%;
 }
 footer .sign {
   font-size: 0.8em;

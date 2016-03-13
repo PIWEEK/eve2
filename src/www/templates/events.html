@@ -1,20 +1,26 @@
 <div ng-controller="EventsCtrl as eventsCtrl">
-
-
     <div class="row">
       <header class="full block">
         <div class="eve-logo inline-block"><a href="#"><img src="images/eve-text.png" border="0"></a></div>
         <div class="eve-icon inline-block"><img src="images/eve.svg" border="0"></div>
         <input type="text" placeholder="Search an event" class="search right" ng-model="eventsCtrl.filter">
       </header>
+    </div>
+    <div class="row">
       <div class="content">
         <section class="home-grid full block">
           <h1 class="full">Next events</h1>
-            <div ng-hide="eventsCtrl.hideEvent(event)" ng-repeat="event in eventsCtrl.filteredEvents" class="event-home inline-block quarter">
-              <div class="event-home-info"><a href="###">{{event.name}}</a><span class="event-home-date">{{event.date}} - {{event.place}}</span></div><a href="#"><img ng-src="{{event.logo}}" border="0"></a>
+            <div ng-hide="eventsCtrl.hideEvent(event)" ng-repeat="event in eventsCtrl.filteredEvents"
+              class="event-home inline-block quarter" ng-click="eventsCtrl.selectEvent(event)">
+              <div class="event-home-info">
+                <a href="###">{{event.name}}</a>
+                <span class="event-home-date">{{event.date}} - {{event.place}}</span>
+              </div>
+              <a href="#"><img ng-src="{{event.logo}}" border="0"></a>
             </div>
         </section>
       </div>
     </div>
+    <ng-include src="'includes/footer.html'" />
 
 </div>

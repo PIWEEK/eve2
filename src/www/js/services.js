@@ -3,7 +3,7 @@ angular.module('services', [])
 
 .service('dataService', ['$http', '$q',function($http, $q) {
   this.eventsURL = 'http://eveapp.top/api/v1/events.js';
-  this.eventDetailURL = 'http://eveapp.top/api/v1/event/_id_/.js';
+  this.eventDetailURL = 'http://eveapp.top/api/v1/event/$id.js';
 
   this.eventList = {};
   this.getEventList = function() {
@@ -13,12 +13,10 @@ angular.module('services', [])
     // Try to load from API
     $http.get(this.eventsURL)
       .success(function (json) {
-        console.log(json);
         service.saveEventList(json);
         deferred.resolve(json);
       })
       .error(function (error) {
-        console.log('error');
         var data = service.loadEventList();
         deferred.resolve(data);
       });
@@ -34,14 +32,40 @@ angular.module('services', [])
     return JSON.parse(window.localStorage['eventList'] || '{}');
   }
 
-  this.saveEvent = function(event) {
-    window.localStorage[event.name] = JSON.stringify(event);
+  this.saveEventDetail = function(event) {
+    window.localStorage[event.id] = JSON.stringify(event);
+  }
+
+  this.loadEventDetail = function(event) {
+    return JSON.parse(window.localStorage[event.id] || '{}');
+  }
+
+  this.getEventDetail = function(event) {
+
+    var service = this;
+    var deferred = $q.defer();
+
+    var url = this.eventDetailURL.replace('$id', event.id);
+
+    // Try to load from API
+    $http.get(url)
+      .success(function (json) {
+        service.saveEventDetail(json);
+        deferred.resolve(json);
+      })
+      .error(function (error) {
+        var data = service.loadEventDetail(event);
+        deferred.resolve(data);
+      });
+
+    return deferred.promise;
   }
 
 
-  this.loadEvent = function(event) {
-    return JSON.parse(window.localStorage[event.name] || '{}');
-  }
+}])
 
+
+.service('eventsService', [function() {
+  this.currentEvent = {};
 
 }]);
