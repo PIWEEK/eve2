@@ -5,15 +5,12 @@ New EVE using ionic
 
 1- Clone the repo
 
-2- Execute ./runDocker.sh
+2- Execute `./dev build` to build the docker image
 
-3- The directory src is mapped to the doker containter /myApp directory, so you can change on local filesystem, and the changes are availabe inside docker
+3- Execute `./dev enter` to run the development environment into an attached tmux session
 
-4- On the docker shell, execute cd /myApp
+4- You can access the server on http://localhost:8100 . The changes are auto reloaded :)
 
-5- On the docker shell, execute ./start.sh
+The directory `src` is mapped inside the doker containter to `/home/user/app` directory, so you can change anything on your local filesystem, and the changes will be inmediately availabe inside the docker container
 
-6- You can access the server on http://localhost:8100 . The changes are auto reloaded :)
-
-7- Profit!
-
+Inside the tmux session, you have two windows: the `layout` one, that runs the gulp development task and the `ionic` window, that runs the ionic server. You can move between windows using `CTRL+B n` (next) and `CTRL+B p` (prev) or using directly `CTRL+B WINDOW-INDEX`, being `WINDOW-INDEX` 0 or 1
