@@ -41,15 +41,11 @@ angular.module('eveApp', ['ionic', 'services', 'controllers'])
     templateUrl: "templates/events.html"
   })
 
-  .state('eventDetail', {
-    url: "/eventDetail",
-    templateUrl: "templates/eventDetail.html",
+  .state('event', {
+    url: "/event",
+    templateUrl: "templates/event.html",
   })
 
-  .state('eventLocation', {
-    url: "/eventLocation",
-    templateUrl: "templates/eventLocation.html",
-  })
 
   $urlRouterProvider.otherwise('/events');
 

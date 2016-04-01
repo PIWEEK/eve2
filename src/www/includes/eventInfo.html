@@ -1,0 +1,7 @@
+<div class="event-img"><img ng-src="{{eventDetailCtrl.eventDetail.logo}}"></div>
+<div class="event-text">
+  <p ng-repeat="text in eventDetailCtrl.eventDetail.text">{{text}}</p>
+</div>
+<div class="tagline">
+  <div ng-repeat="tag in eventDetailCtrl.eventDetail.tags" class="tag" style="border-left: 8px solid {{tag.color}};">{{tag.tag}}</div>
+</div>

@@ -193,6 +193,7 @@ input.search:focus:-ms-input-placeholder {
 .tagline .tag {
   display: inline-block;
   margin-right: 4px;
+  margin-top: 4px;
   background-color: #9bd5e3;
   color: #164450;
   padding: 0.3em 1em;
@@ -359,6 +360,12 @@ header input.search {
 .content .home-grid .event-home:not(.ng-hide) ~ .event-home {
   width: 24.5%;
 }
+
+.ng-hide.ng-hide-animate{
+     display: none !important;
+}
+
+
 /*******************/
 
 
