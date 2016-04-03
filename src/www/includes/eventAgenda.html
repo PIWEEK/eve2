@@ -9,7 +9,7 @@
       <div class="talks-row-hour">{{talk.hour}}</div>
       <div class="talks-row-content" ng-init="showDetail=false">
         <span class="talk-title">{{talk.name}}</span>
-        <span class="talk-speaker" ng-repeat="speaker in talk.speakers">
+        <span class="talk-speaker" ng-repeat="speaker in talk.speakers" ng-click="eventDetailCtrl.selectSpeaker(speaker)">
           {{eventDetailCtrl.speakers[speaker].name}}
         </span>
         <div ng-show="$index == eventDetailCtrl.openedTalk" class="talk-abstract">{{talk.abstract}}</div>

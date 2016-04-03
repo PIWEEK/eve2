@@ -27,7 +27,7 @@ angular.module('controllers', [])
 }])
 
 
-.controller("EventDetailCtrl",['$scope', '$location', 'dataService', 'eventsService', function($scope, $location, dataService, eventsService){
+.controller("EventDetailCtrl",['$scope', '$location', 'dataService', 'eventsService', 'speakersService', function($scope, $location, dataService, eventsService, speakersService){
   this.init = function() {
     this.locationURL = "";
     this.current = 'info';
@@ -108,8 +108,24 @@ angular.module('controllers', [])
     this.currentTrackNumber = num;
   }
 
+  this.selectSpeaker = function(speakerId) {
+    speakersService.currentSpeaker = this.speakers[speakerId];
+    $location.path('/speaker');
+  }
+
+  this.init();
+}])
 
 
+.controller("SpeakerDetailCtrl",['$scope', '$location', 'speakersService', function($scope, $location, speakersService){
+  this.speaker = {}
+  this.init = function() {
+    this.speaker = speakersService.currentSpeaker;
+  }
 
+  this.navigateTo = function(url){
+    $location.path(url);
+  }
+  
   this.init();
 }])

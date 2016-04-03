@@ -369,6 +369,11 @@ header input.search {
   display: block;
   color: gray;
 }
+
+.speaker-photo-container {
+  width:25%;
+}
+
 /*******************/
 
 

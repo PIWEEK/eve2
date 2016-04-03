@@ -69,4 +69,8 @@ angular.module('services', [])
 
 .service('eventsService', [function() {
   this.currentEvent = {};
+}])
+
+.service('speakersService', [function() {
+  this.currentSpeaker = {};
 }]);
