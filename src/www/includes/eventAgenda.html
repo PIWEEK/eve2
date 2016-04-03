@@ -1,7 +1,7 @@
-<div class="talks-track-title">
+<div class="talks-track-title" on-swipe-left="eventDetailCtrl.selectNextTrack()" on-swipe-right="eventDetailCtrl.selectPreviousTrack()">
   <h2>{{eventDetailCtrl.currentTrack.name}}</h2>
 </div>
-<div ng-repeat="day in eventDetailCtrl.currentTrack.days">
+<div ng-repeat="day in eventDetailCtrl.currentTrack.days" on-swipe-left="eventDetailCtrl.selectNextTrack()" on-swipe-right="eventDetailCtrl.selectPreviousTrack()">
     <div class="talks-day-title">
       <h3>{{day.name}}</h3>
     </div>

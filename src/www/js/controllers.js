@@ -32,6 +32,7 @@ angular.module('controllers', [])
     this.locationURL = "";
     this.current = 'info';
     this.currentTrack = {};
+    this.currentTrackNumber = 0;
     this.speakers = [];
     this.menuStyle = {
         "right" : "-70%",
@@ -41,7 +42,7 @@ angular.module('controllers', [])
     var controller = this;
     dataService.getEventDetail(eventsService.currentEvent).then(function(data) {
       controller.eventDetail = data;
-      controller.currentTrack = data.agenda[0];
+      controller.selectTrack(0);
       controller.loadSpeakers();
     });
   }
@@ -84,6 +85,27 @@ angular.module('controllers', [])
       speaker = this.eventDetail.speakers[i];
       this.speakers[speaker.id] = speaker;
     }
+  }
+
+  this.selectNextTrack = function() {
+    this.currentTrackNumber += 1;
+    if (this.currentTrackNumber >= this.eventDetail.agenda.length) {
+      this.currentTrackNumber = 0;
+    }
+    this.selectTrack(this.currentTrackNumber);
+  }
+
+  this.selectPreviousTrack = function() {
+    this.currentTrackNumber -= 1;
+    if (this.currentTrackNumber < 0) {
+      this.currentTrackNumber = this.eventDetail.agenda.length -1;
+    }
+    this.selectTrack(this.currentTrackNumber);
+  }
+
+  this.selectTrack = function(num) {
+    this.currentTrack = this.eventDetail.agenda[num];
+    this.currentTrackNumber = num;
   }
 
 
