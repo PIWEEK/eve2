@@ -31,13 +31,18 @@ angular.module('controllers', [])
   this.init = function() {
     this.locationURL = "";
     this.current = 'info';
+    this.currentTrack = {};
+    this.speakers = [];
     this.menuStyle = {
         "right" : "-70%",
         "display" : "none"
     }
+    this.openedTalk = -1;
     var controller = this;
     dataService.getEventDetail(eventsService.currentEvent).then(function(data) {
       controller.eventDetail = data;
+      controller.currentTrack = data.agenda[0];
+      controller.loadSpeakers();
     });
   }
 
@@ -67,6 +72,22 @@ angular.module('controllers', [])
     this.current = location;
     this.hideMenu();
   }
+
+  this.openTalk = function(num){
+    this.openedTalk = num;
+  }
+
+  this.loadSpeakers = function(){
+    this.speakers = [];
+    var speaker;
+    for (var i=0; i<this.eventDetail.speakers.length; i++) {
+      speaker = this.eventDetail.speakers[i];
+      this.speakers[speaker.id] = speaker;
+    }
+  }
+
+
+
 
   this.init();
 }])

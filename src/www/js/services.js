@@ -10,6 +10,8 @@ angular.module('services', [])
     var service = this;
     var deferred = $q.defer();
 
+
+    console.log(this.eventsURL);
     // Try to load from API
     $http.get(this.eventsURL)
       .success(function (json) {

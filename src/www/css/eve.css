@@ -341,7 +341,7 @@ header input.search {
   background-color: #5fbcd3;
 }
 
-/****** FOR IONIC CONFLICT *******/
+/****** EXTRA: FOR IONIC CONFLICT *******/
 
 .pane {
   overflow-y:scroll;
@@ -365,7 +365,10 @@ header input.search {
      display: none !important;
 }
 
-
+.content .event-content .talks-row .talks-row-content .talk-abstract {
+  display: block;
+  color: gray;
+}
 /*******************/
 
 
@@ -590,7 +593,8 @@ header input.search {
 .content .event-content .talks-row {
   width: 100%;
   border-bottom: 1px solid #dbe2e3;
-  max-height: 150px;
+  /****** EXTRA *******/
+  /* max-height: 150px; */
   position: relative;
 }
 .content .event-content .talks-row .talks-row-hour {
@@ -629,6 +633,12 @@ header input.search {
   line-height: 1;
   cursor: pointer;
 }
+
+/*** EXTRA ***/
+.content .event-content .talks-row .talks-row-btn-close {
+  top: 25px;
+}
+
 .content .event-content .talks-row .talks-row-btn i {
   color: #b6c3c7;
 }

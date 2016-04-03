@@ -1,0 +1,21 @@
+<div class="talks-track-title">
+  <h2>{{eventDetailCtrl.currentTrack.name}}</h2>
+</div>
+<div ng-repeat="day in eventDetailCtrl.currentTrack.days">
+    <div class="talks-day-title">
+      <h3>{{day.name}}</h3>
+    </div>
+    <div ng-repeat="talk in day.talks" class="talks-row">
+      <div class="talks-row-hour">{{talk.hour}}</div>
+      <div class="talks-row-content" ng-init="showDetail=false">
+        <span class="talk-title">{{talk.name}}</span>
+        <span class="talk-speaker" ng-repeat="speaker in talk.speakers">
+          {{eventDetailCtrl.speakers[speaker].name}}
+        </span>
+        <div ng-show="$index == eventDetailCtrl.openedTalk" class="talk-abstract">{{talk.abstract}}</div>
+      </div>
+      <div ng-hide="talk.break == true || $index == eventDetailCtrl.openedTalk" class="talks-row-btn modalLink" ng-click="eventDetailCtrl.openTalk($index)"><i class="icon-plus"></i></div>
+      <div ng-show="$index == eventDetailCtrl.openedTalk" class="talks-row-btn modalLink talks-row-btn-close" ng-click="eventDetailCtrl.openTalk(-1)"><i class="icon-minus"></i></div>
+    </div>
+  </section>
+</div>

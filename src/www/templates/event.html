@@ -3,7 +3,7 @@
 
     <div class="row">
       <header class="full block">
-        <div class="eve-logo inline-block"><a href="#"><img src="images/eve-text.png" border="0"></a></div>
+        <div class="eve-logo inline-block" ng-click="eventDetailCtrl.navigateTo('/events')"><a href="#"><img src="images/eve-text.png" border="0"></a></div>
         <div class="eve-icon inline-block"><img src="images/eve.svg" border="0"></div>
       </header>
     </div>
@@ -15,7 +15,7 @@
             <nav class="event-nav">
               <ul>
                 <li><a href="#" ng-class="{'current': eventDetailCtrl.current === 'info'}" ng-click="eventDetailCtrl.setCurrent('info')">Info</a></li>
-                <li><a href="event-talks.html">Talks</a></li>
+                <li><a href="#" ng-class="{'current': eventDetailCtrl.current === 'agenda'}" ng-click="eventDetailCtrl.setCurrent('agenda')">Agenda</a></li>
                 <li><a href="event-speakers.html">Speakers</a></li>
                 <li><a href="#" ng-class="{'current': eventDetailCtrl.current === 'location'}" ng-click="eventDetailCtrl.setCurrent('location')">Location</a></li>
               </ul>
@@ -25,17 +25,22 @@
             <ul>
               <li><img src="images/eve.svg" border="0" class="icon-eve"></li>
               <li><a href="#" ng-click="eventDetailCtrl.setCurrent('info')">Info</a></li>
-              <li><a href="event-talks.html">Talks</a></li>
+              <li><a href="#" ng-click="eventDetailCtrl.setCurrent('agenda')">Agenda</a></li>
               <li><a href="event-speakers.html">Speakers</a></li>
               <li><a href="#" ng-click="eventDetailCtrl.setCurrent('location')">Location</a></li>
+              <li><a href="#" ng-click="eventDetailCtrl.navigateTo('/events')">Event List</a></li>
             </ul>
           </nav>
           <div ng-show="eventDetailCtrl.current === 'info'">
             <ng-include src="'includes/eventInfo.html'" />
           </div>
+          <div ng-show="eventDetailCtrl.current === 'agenda'">
+            <ng-include src="'includes/eventAgenda.html'" />
+          </div>
           <div ng-show="eventDetailCtrl.current === 'location'">
             <ng-include src="'includes/eventLocation.html'" />
           </div>
+
         </section>
       </div>
     </div>
