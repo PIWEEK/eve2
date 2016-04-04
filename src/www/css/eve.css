@@ -370,8 +370,10 @@ header input.search {
   color: gray;
 }
 
-.speaker-photo-container {
+.content .event-content .talks-row .talks-row-hour.speaker-photo-container {
   width:25%;
+  padding:0;
+  background: #FFFFFF;
 }
 
 /*******************/
@@ -621,9 +623,12 @@ header input.search {
   font-size: 1.4em;
   color: #006680;
 }
+
+/*** EXTRA ***/
 .content .event-content .talks-row .talks-row-content .talk-speaker {
   display: block;
   color: #5fbcd3;
+  cursor: pointer;
 }
 .content .event-content .talks-row .talks-row-content .talk-location {
   display: block;

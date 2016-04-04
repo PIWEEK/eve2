@@ -1,0 +1,9 @@
+<div class="talks-row" ng-repeat="speaker in eventDetailCtrl.eventDetail.speakers">
+  <div class="talks-row-hour speaker-photo-container">
+    <img ng-src="{{speaker.photo ? speaker.photo : '/images/eve_bw.png'}}" />
+  </div>
+  <div class="talks-row-content">
+    <span class="talk-title">{{speaker.name}}</span>
+    <div class="talk-abstract">{{speaker.description}}</div>
+  </div>
+</div>

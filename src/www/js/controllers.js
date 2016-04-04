@@ -126,6 +126,6 @@ angular.module('controllers', [])
   this.navigateTo = function(url){
     $location.path(url);
   }
-  
+
   this.init();
 }])

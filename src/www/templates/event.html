@@ -16,7 +16,7 @@
               <ul>
                 <li><a href="#" ng-class="{'current': eventDetailCtrl.current === 'info'}" ng-click="eventDetailCtrl.setCurrent('info')">Info</a></li>
                 <li><a href="#" ng-class="{'current': eventDetailCtrl.current === 'agenda'}" ng-click="eventDetailCtrl.setCurrent('agenda')">Agenda</a></li>
-                <li><a href="event-speakers.html">Speakers</a></li>
+                <li><a href="#" ng-class="{'current': eventDetailCtrl.current === 'speakers'}" ng-click="eventDetailCtrl.setCurrent('speakers')">Speakers</a></li>
                 <li><a href="#" ng-class="{'current': eventDetailCtrl.current === 'location'}" ng-click="eventDetailCtrl.setCurrent('location')">Location</a></li>
               </ul>
             </nav><i id="event-nav-icon" class="icon-menu" ng-click="eventDetailCtrl.toggleMenu()"></i>
@@ -26,7 +26,7 @@
               <li><img src="images/eve.svg" border="0" class="icon-eve"></li>
               <li><a href="#" ng-click="eventDetailCtrl.setCurrent('info')">Info</a></li>
               <li><a href="#" ng-click="eventDetailCtrl.setCurrent('agenda')">Agenda</a></li>
-              <li><a href="event-speakers.html">Speakers</a></li>
+              <li><a href="#" ng-click="eventDetailCtrl.setCurrent('speakers')">Speakers</a></li>
               <li><a href="#" ng-click="eventDetailCtrl.setCurrent('location')">Location</a></li>
               <li><a href="#" ng-click="eventDetailCtrl.navigateTo('/events')">Event List</a></li>
             </ul>
@@ -36,6 +36,9 @@
           </div>
           <div ng-show="eventDetailCtrl.current === 'agenda'">
             <ng-include src="'includes/eventAgenda.html'" />
+          </div>
+          <div ng-show="eventDetailCtrl.current === 'speakers'">
+            <ng-include src="'includes/eventSpeakers.html'" />
           </div>
           <div ng-show="eventDetailCtrl.current === 'location'">
             <ng-include src="'includes/eventLocation.html'" />
