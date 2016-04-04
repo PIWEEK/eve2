@@ -1,3 +1,4 @@
+<ion-content>
 <div ng-controller="EventDetailCtrl as eventDetailCtrl">
 
 
@@ -8,7 +9,7 @@
       </header>
     </div>
     <div class="row">
-      <div class="content">
+      <div class="content" delegate-handle="content">
         <section class="event-content">
           <div class="event-header"><i id="talks-nav-icon" class="icon-bubbles"></i>
             <h1 class="full">{{eventDetailCtrl.eventDetail.name}}</h1>
@@ -18,6 +19,7 @@
                 <li><a href="#" ng-class="{'current': eventDetailCtrl.current === 'agenda'}" ng-click="eventDetailCtrl.setCurrent('agenda')">Agenda</a></li>
                 <li><a href="#" ng-class="{'current': eventDetailCtrl.current === 'speakers'}" ng-click="eventDetailCtrl.setCurrent('speakers')">Speakers</a></li>
                 <li><a href="#" ng-class="{'current': eventDetailCtrl.current === 'location'}" ng-click="eventDetailCtrl.setCurrent('location')">Location</a></li>
+                <li><a href="#" ng-class="{'current': eventDetailCtrl.current === 'favourites'}" ng-click="eventDetailCtrl.setCurrent('favourites')">Favourites</a></li>
               </ul>
             </nav><i id="event-nav-icon" class="icon-menu" ng-click="eventDetailCtrl.toggleMenu()"></i>
           </div>
@@ -28,7 +30,7 @@
               <li><a href="#" ng-click="eventDetailCtrl.setCurrent('agenda')">Agenda</a></li>
               <li><a href="#" ng-click="eventDetailCtrl.setCurrent('speakers')">Speakers</a></li>
               <li><a href="#" ng-click="eventDetailCtrl.setCurrent('location')">Location</a></li>
-              <li><a href="#" ng-click="eventDetailCtrl.navigateTo('/events')">Event List</a></li>
+              <li><a href="#" ng-click="eventDetailCtrl.setCurrent('favourites')">Favourites</a></li>
             </ul>
           </nav>
           <div ng-show="eventDetailCtrl.current === 'info'">
@@ -43,6 +45,9 @@
           <div ng-show="eventDetailCtrl.current === 'location'">
             <ng-include src="'includes/eventLocation.html'" />
           </div>
+          <div ng-show="eventDetailCtrl.current === 'favourites'">
+            <ng-include src="'includes/eventFavourites.html'" />
+          </div>
 
         </section>
       </div>
@@ -50,3 +55,4 @@
     <ng-include src="'includes/footer.html'" />
 
 </div>
+</ion-content>

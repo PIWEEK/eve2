@@ -63,6 +63,15 @@ angular.module('services', [])
     return deferred.promise;
   }
 
+  this.saveFavourites = function(eventId, favourites) {
+    window.localStorage[eventId+"_fav"] = JSON.stringify(favourites);
+  }
+
+  this.loadFavourites = function(eventId) {
+    return JSON.parse(window.localStorage[eventId+"_fav"] || '{}');
+
+  }
+
 
 }])
 

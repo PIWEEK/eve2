@@ -376,6 +376,15 @@ header input.search {
   background: #FFFFFF;
 }
 
+.content .event-content .talks-row.favourite  {
+  background-color: #F2F5A9;
+}
+
+.content .event-content .talks-row.favourite .talks-row-btn i{
+  color: red;
+}
+
+
 /*******************/
 
 
@@ -443,7 +452,7 @@ header input.search {
   list-style: none;
   display: inline-block;
   text-align: center;
-  width: 24%;
+  width: 19%;
 }
 .content .event-content .event-header nav.event-nav ul li a {
   display: inline-block;
@@ -628,7 +637,6 @@ header input.search {
 .content .event-content .talks-row .talks-row-content .talk-speaker {
   display: block;
   color: #5fbcd3;
-  cursor: pointer;
 }
 .content .event-content .talks-row .talks-row-content .talk-location {
   display: block;

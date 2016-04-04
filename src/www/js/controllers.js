@@ -32,6 +32,7 @@ angular.module('controllers', [])
     this.locationURL = "";
     this.current = 'info';
     this.currentTrack = {};
+    this.favourites = {};
     this.currentTrackNumber = 0;
     this.speakers = [];
     this.menuStyle = {
@@ -44,6 +45,7 @@ angular.module('controllers', [])
       controller.eventDetail = data;
       controller.selectTrack(0);
       controller.loadSpeakers();
+      controller.favourites = dataService.loadFavourites(data.id);
     });
   }
 
@@ -74,8 +76,12 @@ angular.module('controllers', [])
     this.hideMenu();
   }
 
-  this.openTalk = function(num){
-    this.openedTalk = num;
+  this.toggleTalk= function(num){
+    if (this.openedTalk === num) {
+      this.openedTalk = -1;
+    } else {
+      this.openedTalk = num;
+    }
   }
 
   this.loadSpeakers = function(){
@@ -112,6 +118,19 @@ angular.module('controllers', [])
     speakersService.currentSpeaker = this.speakers[speakerId];
     $location.path('/speaker');
   }
+
+  this.toggleFavourite = function(talk, day, day_num){
+    if (this.favourites[talk.id] !== undefined){
+      delete this.favourites[talk.id];
+    } else {
+      this.favourites[talk.id] = talk;
+      this.favourites[talk.id].track = this.currentTrack.name;
+      this.favourites[talk.id].day = day;
+      this.favourites[talk.id].day_num = day_num;
+    }
+    dataService.saveFavourites(this.eventDetail.id, this.favourites);
+  }
+
 
   this.init();
 }])

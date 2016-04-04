@@ -5,16 +5,19 @@
     <div class="talks-day-title">
       <h3>{{day.name}}</h3>
     </div>
-    <div ng-repeat="talk in day.talks" class="talks-row">
+    <div ng-repeat="talk in day.talks" ng-class="(eventDetailCtrl.favourites[talk.id] === undefined) ? 'talks-row': 'talks-row favourite'" ng-click="eventDetailCtrl.toggleTalk($index)">
       <div class="talks-row-hour">{{talk.hour}}</div>
       <div class="talks-row-content" ng-init="showDetail=false">
         <span class="talk-title">{{talk.name}}</span>
-        <span class="talk-speaker" ng-repeat="speaker in talk.speakers" ng-click="eventDetailCtrl.selectSpeaker(speaker)">
-          {{eventDetailCtrl.speakers[speaker].name}}
+        <span class="talk-speaker" ng-repeat="speaker in talk.speakers">
+          <a href="#" ng-click="eventDetailCtrl.selectSpeaker(speaker); $event.stopPropagation();">{{eventDetailCtrl.speakers[speaker].name}}</a>
         </span>
         <div ng-show="$index == eventDetailCtrl.openedTalk" class="talk-abstract">{{talk.abstract}}</div>
       </div>
+      <div ng-hide="talk.break == true" class="talks-row-btn" ng-click="eventDetailCtrl.toggleFavourite(talk, day.name, $parent.$index); $event.stopPropagation();"><i class="icon-heart"></i></div>
+      <!--
       <div ng-hide="talk.break == true || $index == eventDetailCtrl.openedTalk" class="talks-row-btn modalLink" ng-click="eventDetailCtrl.openTalk($index)"><i class="icon-plus"></i></div>
       <div ng-show="$index == eventDetailCtrl.openedTalk" class="talks-row-btn modalLink talks-row-btn-close" ng-click="eventDetailCtrl.openTalk(-1)"><i class="icon-minus"></i></div>
+    -->
     </div>
 </div>
