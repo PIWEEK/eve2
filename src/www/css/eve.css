@@ -391,6 +391,10 @@ header input.search {
 
 }
 
+.talks-row-content .tagline .tag {
+  padding: 0em 0.5em;
+}
+
 /*******************/
 
 

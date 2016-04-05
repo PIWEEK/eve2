@@ -12,7 +12,10 @@
         <span class="talk-speaker" ng-repeat="speaker in talk.speakers">
           <a href="#" ng-click="eventDetailCtrl.selectSpeaker(speaker); $event.stopPropagation();">{{eventDetailCtrl.speakers[speaker].name}}</a>
         </span>
-        <div ng-show="$index == eventDetailCtrl.openedTalk" class="talk-abstract">{{talk.abstract}}</div>
+        <div ng-show="$index === eventDetailCtrl.openedTalk" class="talk-abstract">{{talk.abstract}}</div>
+        <div class="tagline">
+          <div ng-repeat="tag in talk.tags" class="tag" style="border-left: 8px solid {{tag.color}};">{{tag.tag}}</div>
+        </div>
       </div>
       <div ng-hide="talk.break == true" class="talks-row-btn" ng-click="eventDetailCtrl.toggleFavourite(talk, day.name, $parent.$index); $event.stopPropagation();"><i class="icon-heart"></i></div>
     </div>
