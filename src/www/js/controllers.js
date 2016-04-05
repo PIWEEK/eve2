@@ -127,13 +127,20 @@ angular.module('controllers', [])
   }
 
   this.toggleFavourite = function(talk, day, day_num){
-    if (this.favourites[talk.id] !== undefined){
-      delete this.favourites[talk.id];
+    pos = this.favourites.ids.indexOf(talk.id);
+
+    if (pos > -1){
+      this.favourites.talks.splice(pos, 1);
+      this.favourites.ids.splice(pos, 1);
+
     } else {
-      this.favourites[talk.id] = talk;
-      this.favourites[talk.id].track = this.currentTrack.name;
-      this.favourites[talk.id].day = day;
-      this.favourites[talk.id].day_num = day_num;
+      clonedTalk = JSON.parse(JSON.stringify(talk));
+      clonedTalk.track = this.currentTrack.name;
+      clonedTalk.day = day;
+      clonedTalk.day_num = day_num;
+
+      this.favourites.ids.push(talk.id);
+      this.favourites.talks.push(clonedTalk);
     }
     dataService.saveFavourites(this.eventDetail.id, this.favourites);
   }

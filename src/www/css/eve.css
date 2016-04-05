@@ -608,6 +608,7 @@ header input.search {
   text-align: center;
   margin: 8px 0;
   font-size: 4em;
+  background-color: white;
 }
 
 /**** Extra ***/

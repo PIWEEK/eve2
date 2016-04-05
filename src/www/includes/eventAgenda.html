@@ -5,7 +5,7 @@
     <div class="talks-day-title">
       <h3>{{day.name}}</h3>
     </div>
-    <div ng-repeat="talk in day.talks" ng-class="(eventDetailCtrl.favourites[talk.id] === undefined) ? 'talks-row': 'talks-row favourite'" ng-click="eventDetailCtrl.toggleTalk($index)">
+    <div ng-repeat="talk in day.talks" ng-class="(eventDetailCtrl.favourites.ids.indexOf(talk.id) === -1) ? 'talks-row': 'talks-row favourite'" ng-click="eventDetailCtrl.toggleTalk($index)">
       <div class="talks-row-hour">{{talk.hour}}</div>
       <div class="talks-row-content">
         <span class="talk-title">{{talk.name}}</span>

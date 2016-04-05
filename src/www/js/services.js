@@ -65,10 +65,11 @@ angular.module('services', [])
 
   this.saveFavourites = function(eventId, favourites) {
     window.localStorage[eventId+"_fav"] = JSON.stringify(favourites);
+    console.log(JSON.stringify(favourites));
   }
 
   this.loadFavourites = function(eventId) {
-    return JSON.parse(window.localStorage[eventId+"_fav"] || '{}');
+    return JSON.parse(window.localStorage[eventId+"_fav"] || '{"ids":[],"talks":[]}');
 
   }
 
