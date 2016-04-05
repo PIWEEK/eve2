@@ -372,18 +372,24 @@ header input.search {
 
 .content .event-content .talks-row .talks-row-hour.speaker-photo-container {
   width:25%;
-  padding:0;
+  max-width: 150px;
+  padding:5px;;
   background: #FFFFFF;
 }
 
 .content .event-content .talks-row.favourite  {
-  background-color: #F2F5A9;
+  background-color: #FCE7E7;
+}
+
+.content .event-content .talks-row.favourite .talks-row-btn {
+  background-color: red;
+  border: 1px solid red;
 }
 
 .content .event-content .talks-row.favourite .talks-row-btn i{
-  color: red;
-}
+  color: white;
 
+}
 
 /*******************/
 
@@ -491,7 +497,7 @@ header input.search {
   right: -70%;
   width: 70%;
   height: 1500px;
-  z-index: 990;
+  z-index: 1001;
 }
 .content .event-content nav.event-mobile ul {
   width: 100%;
@@ -603,8 +609,18 @@ header input.search {
   margin: 8px 0;
   font-size: 4em;
 }
+
+/**** Extra ***/
+.content .event-content .talks-day {
+  margin-bottom: 50px;
+}
+/************/
+
+
 .content .event-content .talks-day-title h3 {
   color: #b7e1eb;
+  /*** Extra ****/
+  font-size: 32px;
 }
 .content .event-content .talks-row {
   width: 100%;
@@ -621,6 +637,7 @@ header input.search {
   padding: 1em 3.5%;
   font-size: 2em;
   font-weight: 700;
+  vertical-align: top;
 }
 .content .event-content .talks-row .talks-row-content {
   display: inline-block;
@@ -697,6 +714,16 @@ footer .sign a {
   header .eve-icon {
     display: none;
   }
+
+  /****** EXTRA *******/
+  header .eve-icon.event {
+    display: inline-block;
+    left: 85%;
+    top: 5px;
+  }
+
+
+
   header input.search {
     width: 52%;
   }
@@ -785,7 +812,6 @@ footer .sign a {
   }
   .content .event-content .talks-row .talks-row-hour {
     font-size: 1.5em;
-    vertical-align: top;
   }
   .content .event-content .talks-row .talks-row-content .talk-title {
     font-size: 1.2em;

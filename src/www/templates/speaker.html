@@ -4,7 +4,7 @@
     <div class="row">
       <header class="full block">
         <div class="eve-logo inline-block" ng-click="speakerDetailCtrl.navigateTo('/events')"><a href="#"><img src="images/eve-text.png" border="0"></a></div>
-        <div class="eve-icon inline-block"><img src="images/eve.svg" border="0"></div>
+        <div class="eve-icon event inline-block"><img src="images/eve.svg" border="0"></div>
       </header>
     </div>
     <div class="row">
@@ -12,7 +12,10 @@
         <section class="event-content">
           <div class="event-header">
             <h1 class="full">Speaker</h1>
-            <a ng-click="speakerDetailCtrl.navigateTo('/event')" href="#" class="closeBtn"><i class="icon-close"></i></a>
+            <a ng-click="speakerDetailCtrl.navigateTo('/event')" href="#" class="closeBtn">
+              <div><i class="icon-arrow-left"></i>&nbsp;&nbsp;Return to agenda</div>
+            </a>
+            <br />
             <div class="talks-row">
               <div class="talks-row-hour speaker-photo-container">
                 <img ng-src="{{speakerDetailCtrl.speaker.photo}}" />

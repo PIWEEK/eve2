@@ -1,17 +1,18 @@
 <ion-content>
 <div ng-controller="EventDetailCtrl as eventDetailCtrl">
-
+    <div class="overlay" ng-style="eventDetailCtrl.overlayStyle" ng-click="eventDetailCtrl.toggleMenu()">
+    </div>
 
     <div class="row">
       <header class="full block">
         <div class="eve-logo inline-block" ng-click="eventDetailCtrl.navigateTo('/events')"><a href="#"><img src="images/eve-text.png" border="0"></a></div>
-        <div class="eve-icon inline-block"><img src="images/eve.svg" border="0"></div>
+        <div class="eve-icon event inline-block"><img src="images/eve.svg" border="0"></div>
       </header>
     </div>
     <div class="row">
       <div class="content" delegate-handle="content">
         <section class="event-content">
-          <div class="event-header"><i id="talks-nav-icon" class="icon-bubbles"></i>
+          <div class="event-header">
             <h1 class="full">{{eventDetailCtrl.eventDetail.name}}</h1>
             <nav class="event-nav">
               <ul>
@@ -53,6 +54,6 @@
       </div>
     </div>
     <ng-include src="'includes/footer.html'" />
-
 </div>
+
 </ion-content>

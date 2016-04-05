@@ -39,6 +39,9 @@ angular.module('controllers', [])
         "right" : "-70%",
         "display" : "none"
     }
+    this.overlayStyle = {
+        "display" : "none"
+    }
     this.openedTalk = -1;
     var controller = this;
     dataService.getEventDetail(eventsService.currentEvent).then(function(data) {
@@ -64,11 +67,15 @@ angular.module('controllers', [])
   this.showMenu = function(){
     this.menuStyle["right"] = "0%";
     this.menuStyle["display"] = "block";
+    this.overlayStyle["display"] = "block";
+    console.log(this.overlayStyle);
   }
 
   this.hideMenu = function(){
     this.menuStyle["right"] = "-70%";
     this.menuStyle["display"] = "none";
+    this.overlayStyle["display"] = "none";
+    console.log(this.overlayStyle);
   }
 
   this.setCurrent = function(location){
