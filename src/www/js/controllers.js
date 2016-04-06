@@ -27,13 +27,14 @@ angular.module('controllers', [])
 }])
 
 
-.controller("EventDetailCtrl",['$scope', '$location', 'dataService', 'eventsService', 'speakersService', function($scope, $location, dataService, eventsService, speakersService){
+.controller("EventDetailCtrl",['$scope', '$location', '$ionicScrollDelegate', 'dataService', 'eventsService', 'speakersService', function($scope, $location, $ionicScrollDelegate, dataService, eventsService, speakersService){
   this.init = function() {
     this.locationURL = "";
     this.current = 'info';
     this.currentTrack = {};
     this.favourites = {};
     this.currentTrackNumber = 0;
+    this.lastTrackChangeTime = 0;
     this.speakers = [];
     this.menuStyle = {
         "right" : "-70%",
@@ -65,6 +66,11 @@ angular.module('controllers', [])
   }
 
   this.showMenu = function(){
+    var top = $ionicScrollDelegate.getScrollPosition().top - 10;
+    if (this.current === 'agenda') {
+      top += 50;
+    }
+    this.menuStyle["top"] = top + "px";
     this.menuStyle["right"] = "0%";
     this.menuStyle["display"] = "block";
     this.overlayStyle["display"] = "block";
@@ -72,6 +78,7 @@ angular.module('controllers', [])
   }
 
   this.hideMenu = function(){
+    $ionicScrollDelegate.getScrollView().options.scrollingY = true;
     this.menuStyle["right"] = "-70%";
     this.menuStyle["display"] = "none";
     this.overlayStyle["display"] = "none";
@@ -117,8 +124,12 @@ angular.module('controllers', [])
   }
 
   this.selectTrack = function(num) {
-    this.currentTrack = this.eventDetail.agenda[num];
-    this.currentTrackNumber = num;
+    var n = new Date().getTime();
+    if (n - this.lastTrackChangeTime > 1000) {
+      this.lastTrackChangeTime = n;
+      this.currentTrack = this.eventDetail.agenda[num];
+      this.currentTrackNumber = num;
+    }
   }
 
   this.selectSpeaker = function(speakerId) {

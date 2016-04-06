@@ -1,59 +1,74 @@
-<ion-content>
-<div ng-controller="EventDetailCtrl as eventDetailCtrl">
-    <div class="overlay" ng-style="eventDetailCtrl.overlayStyle" ng-click="eventDetailCtrl.toggleMenu()">
-    </div>
-
-    <div class="row">
-      <header class="full block">
-        <div class="eve-logo inline-block" ng-click="eventDetailCtrl.navigateTo('/events')"><a href="#"><img src="images/eve-text.png" border="0"></a></div>
-        <div class="eve-icon event inline-block"><img src="images/eve.svg" border="0"></div>
-      </header>
-    </div>
-    <div class="row">
-      <div class="content" delegate-handle="content">
-        <section class="event-content">
-          <div class="event-header">
-            <h1 class="full">{{eventDetailCtrl.eventDetail.name}}</h1>
-            <nav class="event-nav">
-              <ul>
-                <li><a href="#" ng-class="{'current': eventDetailCtrl.current === 'info'}" ng-click="eventDetailCtrl.setCurrent('info')">Info</a></li>
-                <li><a href="#" ng-class="{'current': eventDetailCtrl.current === 'agenda'}" ng-click="eventDetailCtrl.setCurrent('agenda')">Agenda</a></li>
-                <li><a href="#" ng-class="{'current': eventDetailCtrl.current === 'speakers'}" ng-click="eventDetailCtrl.setCurrent('speakers')">Speakers</a></li>
-                <li><a href="#" ng-class="{'current': eventDetailCtrl.current === 'location'}" ng-click="eventDetailCtrl.setCurrent('location')">Location</a></li>
-                <li><a href="#" ng-class="{'current': eventDetailCtrl.current === 'favourites'}" ng-click="eventDetailCtrl.setCurrent('favourites')">Favourites</a></li>
-              </ul>
-            </nav><i id="event-nav-icon" class="icon-menu" ng-click="eventDetailCtrl.toggleMenu()"></i>
-          </div>
-          <nav class="event-mobile" id="event-mobile" ng-style="eventDetailCtrl.menuStyle">
-            <ul>
-              <li><img src="images/eve.svg" border="0" class="icon-eve"></li>
-              <li><a href="#" ng-click="eventDetailCtrl.setCurrent('info')">Info</a></li>
-              <li><a href="#" ng-click="eventDetailCtrl.setCurrent('agenda')">Agenda</a></li>
-              <li><a href="#" ng-click="eventDetailCtrl.setCurrent('speakers')">Speakers</a></li>
-              <li><a href="#" ng-click="eventDetailCtrl.setCurrent('location')">Location</a></li>
-              <li><a href="#" ng-click="eventDetailCtrl.setCurrent('favourites')">Favourites</a></li>
-            </ul>
-          </nav>
-          <div ng-show="eventDetailCtrl.current === 'info'">
-            <ng-include src="'includes/eventInfo.html'" />
-          </div>
-          <div ng-show="eventDetailCtrl.current === 'agenda'">
-            <ng-include src="'includes/eventAgenda.html'" />
-          </div>
-          <div ng-show="eventDetailCtrl.current === 'speakers'">
-            <ng-include src="'includes/eventSpeakers.html'" />
-          </div>
-          <div ng-show="eventDetailCtrl.current === 'location'">
-            <ng-include src="'includes/eventLocation.html'" />
-          </div>
-          <div ng-show="eventDetailCtrl.current === 'favourites'">
-            <ng-include src="'includes/eventFavourites.html'" />
-          </div>
-
-        </section>
+<ion-pane ng-controller="EventDetailCtrl as eventDetailCtrl">
+  <ion-header-bar align-title="left" class="bar-stable">
+    <div class="fixed-header">
+      <div class="header-section header-eve-icon" ng-click="eventDetailCtrl.navigateTo('/events')"><img src="images/eve.svg" border="0"></div>
+      <div class="header-section header-event-title">
+        <img src="images/eve-text.png" border="0">
+        <span> / {{eventDetailCtrl.eventDetail.shortname}}</span>
       </div>
+      <div class="header-section header-menu"><i id="event-nav-icon" class="icon-menu" ng-click="eventDetailCtrl.toggleMenu()"></i></div>
     </div>
-    <ng-include src="'includes/footer.html'" />
-</div>
+  </ion-header-bar>
 
-</ion-content>
+  <ion-header-bar align-title="left" class="bar bar-subheader" ng-if="eventDetailCtrl.current === 'agenda'">
+    <div class="talks-track-title" on-swipe-left="eventDetailCtrl.selectNextTrack()" on-swipe-right="eventDetailCtrl.selectPreviousTrack()">
+      <h2>{{eventDetailCtrl.currentTrack.name}}</h2>
+      <div class="go left" ng-click="eventDetailCtrl.selectPreviousTrack()"><i class="icon-arrow-left"></i></div>
+      <div class="go right" ng-click="eventDetailCtrl.selectNextTrack()"><i class="icon-arrow-right"></i></div>
+    </div>
+  </ion-header-bar>
+
+  <ion-content>
+  <div>
+      <div class="overlay" ng-style="eventDetailCtrl.overlayStyle" ng-click="eventDetailCtrl.toggleMenu()">
+      </div>
+
+      <div class="row">
+        <div class="content" delegate-handle="content">
+          <section class="event-content">
+            <div class="event-header">
+              <nav class="event-nav">
+                <ul>
+                  <li><a href="#" ng-class="{'current': eventDetailCtrl.current === 'info'}" ng-click="eventDetailCtrl.setCurrent('info')">Info</a></li>
+                  <li><a href="#" ng-class="{'current': eventDetailCtrl.current === 'agenda'}" ng-click="eventDetailCtrl.setCurrent('agenda')">Agenda</a></li>
+                  <li><a href="#" ng-class="{'current': eventDetailCtrl.current === 'speakers'}" ng-click="eventDetailCtrl.setCurrent('speakers')">Speakers</a></li>
+                  <li><a href="#" ng-class="{'current': eventDetailCtrl.current === 'location'}" ng-click="eventDetailCtrl.setCurrent('location')">Location</a></li>
+                  <li><a href="#" ng-class="{'current': eventDetailCtrl.current === 'favourites'}" ng-click="eventDetailCtrl.setCurrent('favourites')">Favourites</a></li>
+                </ul>
+              </nav>
+            </div>
+            <nav class="event-mobile" id="event-mobile" ng-style="eventDetailCtrl.menuStyle">
+              <ul>
+                <li><img src="images/eve.svg" border="0" class="icon-eve"></li>
+                <li><a href="#" ng-click="eventDetailCtrl.setCurrent('info')">Info</a></li>
+                <li><a href="#" ng-click="eventDetailCtrl.setCurrent('agenda')">Agenda</a></li>
+                <li><a href="#" ng-click="eventDetailCtrl.setCurrent('speakers')">Speakers</a></li>
+                <li><a href="#" ng-click="eventDetailCtrl.setCurrent('location')">Location</a></li>
+                <li><a href="#" ng-click="eventDetailCtrl.setCurrent('favourites')">Favourites</a></li>
+                <li><a href="#" ng-click="eventDetailCtrl.navigateTo('/events')">Events list</a></li>
+              </ul>
+            </nav>
+            <div ng-show="eventDetailCtrl.current === 'info'">
+              <ng-include src="'includes/eventInfo.html'" />
+            </div>
+            <div ng-show="eventDetailCtrl.current === 'agenda'">
+              <ng-include src="'includes/eventAgenda.html'" />
+            </div>
+            <div ng-show="eventDetailCtrl.current === 'speakers'">
+              <ng-include src="'includes/eventSpeakers.html'" />
+            </div>
+            <div ng-show="eventDetailCtrl.current === 'location'">
+              <ng-include src="'includes/eventLocation.html'" />
+            </div>
+            <div ng-show="eventDetailCtrl.current === 'favourites'">
+              <ng-include src="'includes/eventFavourites.html'" />
+            </div>
+
+          </section>
+        </div>
+      </div>
+      <ng-include src="'includes/footer.html'" />
+  </div>
+
+  </ion-content>
+</ion-pane>

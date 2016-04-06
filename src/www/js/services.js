@@ -9,9 +9,10 @@ angular.module('services', [])
   this.getEventList = function() {
     var service = this;
     var deferred = $q.defer();
+    var ts = new Date().getHours();
 
 
-    console.log(this.eventsURL);
+    console.log(this.eventsURL + "?timestamp=" +ts);
     // Try to load from API
     $http.get(this.eventsURL)
       .success(function (json) {
@@ -43,6 +44,7 @@ angular.module('services', [])
   }
 
   this.getEventDetail = function(event) {
+    var ts = new Date().getHours();
 
     var service = this;
     var deferred = $q.defer();
@@ -50,7 +52,7 @@ angular.module('services', [])
     var url = this.eventDetailURL.replace('$id', event.id);
 
     // Try to load from API
-    $http.get(url)
+    $http.get(url + "?timestamp=" +ts)
       .success(function (json) {
         service.saveEventDetail(json);
         deferred.resolve(json);
