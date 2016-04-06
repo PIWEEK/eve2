@@ -11,13 +11,19 @@ function usage {
     echo "USAGE $0 [ build | enter ]"
     echo ""
     echo "COMMANDS"
-    echo "  build: runs docker build command to create ${IMGNAME} image"
+    echo "  build: runs docker build command to create ${IMGNAME} image for develop"
+    echo "  build-android: runs docker build command to create ${IMGNAME} image for release on android (slow!)"
     echo "  enter: runs development environment"
 }
 
 function build_docker_image {
     echo -e "=> Building ${IMGNAME} ${BOLD}docker image${RESET}"
     docker build -t $IMGNAME docker
+}
+
+function build_docker_image_android {
+    echo -e "=> Building ${IMGNAME} ${BOLD}docker image${RESET}"
+    docker build -t $IMGNAME docker-android
 }
 
 function run_development_environment {
@@ -31,6 +37,9 @@ function run_development_environment {
 case $1 in
     build)
         build_docker_image
+        ;;
+    build-android)
+        build_docker_image_android
         ;;
     enter)
         run_development_environment
