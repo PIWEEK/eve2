@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.myapp850406" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>Eve</name>
+<widget id="es.seastorm.eveapp" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+  <name>EveApp</name>
   <description>
-        Eve: Your events manager.
+        EveApp: Your events manager.
     </description>
   <author email="pablo.alba@gmail.com" href="http://kaleidos.net/">
       Pablo Alba
@@ -40,5 +40,5 @@
     <splash src="resources/android/splash/drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
   </platform>
   <icon src="resources/android/icon/drawable-xhdpi-icon.png"/>
-  <allow-navigation href="http://*/*" />
+  <allow-navigation href="http://*/*"/>
 </widget>
