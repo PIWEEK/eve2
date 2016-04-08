@@ -707,6 +707,7 @@ header input.search {
   font-weight: 700;
   vertical-align: top;
   height: 85px;
+  border-bottom: 1px solid white;
 }
 .content .event-content .talks-row .talks-row-content {
   display: inline-block;
@@ -730,9 +731,15 @@ header input.search {
 }
 
 /*** EXTRA ***/
+.content .event-content .talks-row .talks-row-content .talk-speaker-wrap{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .content .event-content .talks-row .talks-row-content .talk-speaker {
   display: inline-block;
   color: #5fbcd3;
+  white-space: nowrap;
 }
 .content .event-content .talks-row .talks-row-content .talk-location {
   display: block;

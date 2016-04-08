@@ -12,7 +12,7 @@
 
   <ion-header-bar align-title="left" class="bar bar-subheader" ng-if="eventDetailCtrl.current === 'agenda'">
     <div class="talks-track-title" on-swipe-left="eventDetailCtrl.selectNextTrack()" on-swipe-right="eventDetailCtrl.selectPreviousTrack()">
-      <h2>{{eventDetailCtrl.currentTrack.name}}</h2>
+      <h2>{{eventDetailCtrl.currentTrackName}}</h2>
       <div class="go left" ng-click="eventDetailCtrl.selectPreviousTrack()"><i class="icon-arrow-left"></i></div>
       <div class="go right" ng-click="eventDetailCtrl.selectNextTrack()"><i class="icon-arrow-right"></i></div>
     </div>

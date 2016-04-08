@@ -31,7 +31,7 @@ angular.module('controllers', [])
   this.init = function() {
     this.locationURL = "";
     this.current = 'info';
-    this.currentTrack = {};
+    this.currentTrackName = "";
     this.favourites = {};
     this.currentTrackNumber = 0;
     this.lastTrackChangeTime = 0;
@@ -119,32 +119,35 @@ angular.module('controllers', [])
     var n = new Date().getTime();
     if (n - this.lastTrackChangeTime > 1000) {
       this.lastTrackChangeTime = n;
-      this.currentTrack = this.eventDetail.agenda[num];
+      var position = $ionicScrollDelegate.getScrollPosition();
       this.currentTrackNumber = num;
+      this.currentTrackName = this.eventDetail.agenda[num].name;
+      $ionicScrollDelegate.scrollTo(position.left, position.top);
     }
   }
 
   this.openTalk = function(talk) {
-    speakersService.currentTalk = talk;
-    speakersService.speakers = [];
+    if (!talk.break) {
+      speakersService.currentTalk = talk;
+      speakersService.speakers = [];
 
-    for (i=0;i<talk.speakers.length;i++){
-      speakersService.speakers.push(this.speakers[talk.speakers[i]]);
+      for (i=0;i<talk.speakers.length;i++){
+        speakersService.speakers.push(this.speakers[talk.speakers[i]]);
+      }
+
+      $location.path('/speaker');
     }
-
-    $location.path('/speaker');
   }
 
   this.toggleFavourite = function(talk, day, day_num){
     pos = this.favourites.ids.indexOf(talk.id);
-
     if (pos > -1){
       this.favourites.talks.splice(pos, 1);
       this.favourites.ids.splice(pos, 1);
 
     } else {
       clonedTalk = JSON.parse(JSON.stringify(talk));
-      clonedTalk.track = this.currentTrack.name;
+      clonedTalk.track = this.currentTrackName;
       clonedTalk.day = day;
       clonedTalk.day_num = day_num;
 
@@ -152,6 +155,7 @@ angular.module('controllers', [])
       this.favourites.talks.push(clonedTalk);
     }
     dataService.saveFavourites(this.eventDetail.id, this.favourites);
+
   }
 
 
