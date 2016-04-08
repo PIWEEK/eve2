@@ -11,6 +11,8 @@ angular.module('services', [])
     var deferred = $q.defer();
     var ts = new Date().getHours();
 
+    this.currentEventDetail = {}
+
 
     console.log(this.eventsURL + "?timestamp=" +ts);
     // Try to load from API
@@ -55,10 +57,12 @@ angular.module('services', [])
     $http.get(url + "?timestamp=" +ts)
       .success(function (json) {
         service.saveEventDetail(json);
+        service.currentEventDetail = json;
         deferred.resolve(json);
       })
       .error(function (error) {
         var data = service.loadEventDetail(event);
+        service.currentEventDetail = data;
         deferred.resolve(data);
       });
 
@@ -84,5 +88,6 @@ angular.module('services', [])
 }])
 
 .service('speakersService', [function() {
-  this.currentSpeaker = {};
+  this.speakers = [];
+  this.currentTalk = {};
 }]);

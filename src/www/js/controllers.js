@@ -90,14 +90,6 @@ angular.module('controllers', [])
     this.hideMenu();
   }
 
-  this.toggleTalk= function(num){
-    if (this.openedTalk === num) {
-      this.openedTalk = -1;
-    } else {
-      this.openedTalk = num;
-    }
-  }
-
   this.loadSpeakers = function(){
     this.speakers = [];
     var speaker;
@@ -132,8 +124,14 @@ angular.module('controllers', [])
     }
   }
 
-  this.selectSpeaker = function(speakerId) {
-    speakersService.currentSpeaker = this.speakers[speakerId];
+  this.openTalk = function(talk) {
+    speakersService.currentTalk = talk;
+    speakersService.speakers = [];
+
+    for (i=0;i<talk.speakers.length;i++){
+      speakersService.speakers.push(this.speakers[talk.speakers[i]]);
+    }
+
     $location.path('/speaker');
   }
 
@@ -161,10 +159,12 @@ angular.module('controllers', [])
 }])
 
 
-.controller("SpeakerDetailCtrl",['$scope', '$location', 'speakersService', function($scope, $location, speakersService){
+.controller("SpeakerDetailCtrl",['$scope', '$location', 'speakersService', 'dataService', function($scope, $location, speakersService, dataService){
   this.speaker = {}
   this.init = function() {
-    this.speaker = speakersService.currentSpeaker;
+    this.speakers = speakersService.speakers;
+    this.currentTalk = speakersService.currentTalk;
+    this.eventDetail = dataService.currentEventDetail;
   }
 
   this.navigateTo = function(url){

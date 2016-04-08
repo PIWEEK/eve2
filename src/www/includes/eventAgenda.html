@@ -2,14 +2,13 @@
     <div class="talks-day-title">
       <h3>{{day.name}}</h3>
     </div>
-    <div ng-repeat="talk in day.talks" ng-class="(eventDetailCtrl.favourites.ids.indexOf(talk.id) === -1) ? 'talks-row': 'talks-row favourite'" ng-click="eventDetailCtrl.toggleTalk($index)">
+    <div ng-repeat="talk in day.talks" ng-class="(eventDetailCtrl.favourites.ids.indexOf(talk.id) === -1) ? 'talks-row': 'talks-row favourite'" ng-click="eventDetailCtrl.openTalk(talk)">
       <div class="talks-row-hour">{{talk.hour}}</div>
       <div class="talks-row-content">
         <span class="talk-title">{{talk.name}}</span>
         <span class="talk-speaker" ng-repeat="speaker in talk.speakers">
-          <a href="#" ng-click="eventDetailCtrl.selectSpeaker(speaker); $event.stopPropagation();">{{eventDetailCtrl.speakers[speaker].name}}</a>
+          {{eventDetailCtrl.speakers[speaker].name}}<span ng-if="!$last">,&nbsp;</span>       
         </span>
-        <div ng-show="$index === eventDetailCtrl.openedTalk" class="talk-abstract">{{talk.abstract}}</div>
         <div class="tagline">
           <div ng-repeat="tag in talk.tags" class="tag" style="border-left: 8px solid {{tag.color}};">{{tag.tag}}</div>
         </div>

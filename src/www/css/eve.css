@@ -695,6 +695,7 @@ header input.search {
   /****** EXTRA *******/
   /* max-height: 150px; */
   position: relative;
+  cursor: pointer;
 }
 .content .event-content .talks-row .talks-row-hour {
   text-align: center;
@@ -705,21 +706,32 @@ header input.search {
   font-size: 2em;
   font-weight: 700;
   vertical-align: top;
+  height: 85px;
 }
 .content .event-content .talks-row .talks-row-content {
   display: inline-block;
   padding: 2%;
   width: 60%;
 }
+
+.content .event-content .talks-row .talks-row-content.talk-detail {
+  width: 100%;
+  margin-bottom: 25px;
+}
+
+
 .content .event-content .talks-row .talks-row-content .talk-title {
   display: block;
   font-size: 1.4em;
   color: #006680;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /*** EXTRA ***/
 .content .event-content .talks-row .talks-row-content .talk-speaker {
-  display: block;
+  display: inline-block;
   color: #5fbcd3;
 }
 .content .event-content .talks-row .talks-row-content .talk-location {

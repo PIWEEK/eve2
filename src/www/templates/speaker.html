@@ -1,6 +1,17 @@
-<div ng-controller="SpeakerDetailCtrl as speakerDetailCtrl">
+<ion-pane ng-controller="SpeakerDetailCtrl as speakerDetailCtrl">
+  <ion-header-bar align-title="left" class="bar-stable">
+    <div class="fixed-header">
+      <div class="header-section header-eve-icon" ng-click="speakerDetailCtrl.navigateTo('/events')"><img src="images/eve.svg" border="0"></div>
+      <div class="header-section header-event-title">
+        <img src="images/eve-text.png" border="0">
+        <span> / {{speakerDetailCtrl.eventDetail.shortname}}</span>
+      </div>
+    </div>
+  </ion-header-bar>
 
 
+
+  <ion-content>
     <div class="row">
       <header class="full block">
         <div class="eve-logo inline-block" ng-click="speakerDetailCtrl.navigateTo('/events')"><a href="#"><img src="images/eve-text.png" border="0"></a></div>
@@ -10,26 +21,37 @@
     <div class="row">
       <div class="content">
         <section class="event-content">
-          <div class="event-header">
-            <h1 class="full">Speaker</h1>
             <a ng-click="speakerDetailCtrl.navigateTo('/event')" href="#" class="closeBtn">
               <div><i class="icon-arrow-left"></i>&nbsp;&nbsp;Return to agenda</div>
             </a>
-            <br />
             <div class="talks-row">
-              <div class="talks-row-hour speaker-photo-container">
-                <img ng-src="{{speakerDetailCtrl.speaker.photo}}" />
-              </div>
-              <div class="talks-row-content">
-                <span class="talk-title">{{speakerDetailCtrl.speaker.name}}</span>
-                <div class="talk-abstract">{{speakerDetailCtrl.speaker.description}}</div>
+              <div class="talks-row-content talk-detail">
+                <span class="talk-title">{{speakerDetailCtrl.currentTalk.name}}</span>
+                <div class="tagline">
+                  <div ng-repeat="tag in talk.tags" class="tag" style="border-left: 8px solid {{tag.color}};">{{tag.tag}}</div>
+                </div>
+                <div class="talk-abstract">{{speakerDetailCtrl.currentTalk.abstract}}</div>
+
               </div>
             </div>
 
-          </div>
+
+
+            <div class="talks-row" ng-repeat="speaker in speakerDetailCtrl.speakers">
+              <div class="talks-row-hour speaker-photo-container">
+                <img ng-src="{{speaker.photo ? speaker.photo : 'images/eve_bw.png'}}" />
+              </div>
+              <div class="talks-row-content">
+                <span class="talk-title">{{speaker.name}}</span>
+                <div class="talk-abstract">{{speaker.description}}</div>
+              </div>
+            </div>
+
+
         </section>
       </div>
     </div>
     <ng-include src="'includes/footer.html'" />
 
-</div>
+  </<ion-content>>
+</ion-pane>
