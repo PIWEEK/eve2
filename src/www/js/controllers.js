@@ -27,7 +27,7 @@ angular.module('controllers', [])
 }])
 
 
-.controller("EventDetailCtrl",['$scope', '$location', '$ionicScrollDelegate', 'dataService', 'eventsService', 'speakersService', function($scope, $location, $ionicScrollDelegate, dataService, eventsService, speakersService){
+.controller("EventDetailCtrl",['$scope', '$location', '$ionicScrollDelegate', '$timeout', 'dataService', 'eventsService', 'speakersService', function($scope, $location, $ionicScrollDelegate, $timeout, dataService, eventsService, speakersService){
   this.init = function() {
     this.locationURL = "";
     this.current = 'info';
@@ -74,7 +74,6 @@ angular.module('controllers', [])
     this.menuStyle["right"] = "0%";
     this.menuStyle["display"] = "block";
     this.overlayStyle["display"] = "block";
-    console.log(this.overlayStyle);
   }
 
   this.hideMenu = function(){
@@ -82,7 +81,6 @@ angular.module('controllers', [])
     this.menuStyle["right"] = "-70%";
     this.menuStyle["display"] = "none";
     this.overlayStyle["display"] = "none";
-    console.log(this.overlayStyle);
   }
 
   this.setCurrent = function(location){
@@ -121,8 +119,11 @@ angular.module('controllers', [])
       this.lastTrackChangeTime = n;
       var position = $ionicScrollDelegate.getScrollPosition();
       this.currentTrackNumber = num;
-      this.currentTrackName = this.eventDetail.agenda[num].name;
-      $ionicScrollDelegate.scrollTo(position.left, position.top);
+      var controller = this;
+      $timeout(function(){
+        $ionicScrollDelegate.scrollTo(position.left, position.top);
+      },50)
+
     }
   }
 
@@ -173,6 +174,44 @@ angular.module('controllers', [])
 
   this.navigateTo = function(url){
     $location.path(url);
+  }
+
+  this.slugify = function(text){
+    return text.toString().toLowerCase()
+      .replace(/\s+/g, '-')           // Replace spaces with -
+      .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+      .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+      .replace(/^-+/, '')             // Trim - from start of text
+      .replace(/-+$/, '');            // Trim - from end of text
+  }
+
+  this.tweet = function(){
+    var text = "At \""+this.currentTalk.name+"\" by ";
+    for (i=0; i< this.speakers.length; i++) {
+      var speaker = this.speakers[i];
+      if (speaker.twitter !== ""){
+        text += speaker.twitter;
+      } else {
+        text += speaker.name;
+      }
+      if (i < this.speakers.length-1){
+        text += " and "
+      }
+    }
+
+    if ((this.eventDetail.hashtag !== undefined) && (this.eventDetail.hashtag !== "")) {
+      text += " "+this.eventDetail.hashtag;
+    } else {
+      text += " %23"+this.slugify(this.eventDetail.shortname);
+    }
+
+    if ((this.currentTalk.hashtag !== undefined) && (this.currentTalk.hashtag !== "")) {
+      text += " "+this.currentTalk.hashtag;
+    }
+
+    var url = "https://twitter.com/intent/tweet?text="+text;
+
+    window.open(url, '_system', 'location=no');
   }
 
   this.init();

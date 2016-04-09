@@ -15,9 +15,18 @@
     <div class="row">
       <div class="content">
         <section class="event-content">
-            <a ng-click="speakerDetailCtrl.navigateTo('/event')" href="#" class="closeBtn">
-              <div><i class="icon-arrow-left"></i>&nbsp;&nbsp;Return</div>
-            </a>
+            <div>
+              <div class="closeButton">
+                <a ng-click="speakerDetailCtrl.navigateTo('/event')" href="#">
+                  <div><i class="icon-arrow-left"></i>&nbsp;&nbsp;Return</div>
+                </a>
+              </div>
+              <div class="twitterButton">
+                <a class="right" ng-click="speakerDetailCtrl.tweet()" href="#">
+                  <img src="images/twitter.png" />
+                </a>
+              </div>
+            </div>
             <div class="talks-row">
               <div class="talks-row-content talk-detail">
                 <span class="talk-title">{{speakerDetailCtrl.currentTalk.name}}</span>

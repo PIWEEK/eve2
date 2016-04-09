@@ -12,7 +12,7 @@
 
   <ion-header-bar align-title="left" class="bar bar-subheader" ng-if="eventDetailCtrl.current === 'agenda'">
     <div class="talks-track-title" on-swipe-left="eventDetailCtrl.selectNextTrack()" on-swipe-right="eventDetailCtrl.selectPreviousTrack()">
-      <h2>{{eventDetailCtrl.currentTrackName}}</h2>
+      <h2>{{eventDetailCtrl.eventDetail.agenda[eventDetailCtrl.currentTrackNumber].name}}</h2>
       <div class="go left" ng-click="eventDetailCtrl.selectPreviousTrack()"><i class="icon-arrow-left"></i></div>
       <div class="go right" ng-click="eventDetailCtrl.selectNextTrack()"><i class="icon-arrow-right"></i></div>
     </div>
@@ -25,18 +25,7 @@
 
       <div class="row">
         <div class="content" delegate-handle="content">
-          <section class="event-content">
-            <div class="event-header">
-              <nav class="event-nav">
-                <ul>
-                  <li><a href="#" ng-class="{'current': eventDetailCtrl.current === 'info'}" ng-click="eventDetailCtrl.setCurrent('info')">Info</a></li>
-                  <li><a href="#" ng-class="{'current': eventDetailCtrl.current === 'agenda'}" ng-click="eventDetailCtrl.setCurrent('agenda')">Agenda</a></li>
-                  <li><a href="#" ng-class="{'current': eventDetailCtrl.current === 'speakers'}" ng-click="eventDetailCtrl.setCurrent('speakers')">Speakers</a></li>
-                  <li><a href="#" ng-class="{'current': eventDetailCtrl.current === 'location'}" ng-click="eventDetailCtrl.setCurrent('location')">Location</a></li>
-                  <li><a href="#" ng-class="{'current': eventDetailCtrl.current === 'favourites'}" ng-click="eventDetailCtrl.setCurrent('favourites')">Favourites</a></li>
-                </ul>
-              </nav>
-            </div>
+          <section class="event-content">            
             <nav class="event-mobile" id="event-mobile" ng-style="eventDetailCtrl.menuStyle">
               <ul>
                 <li><img src="images/eve.svg" border="0" class="icon-eve"></li>
