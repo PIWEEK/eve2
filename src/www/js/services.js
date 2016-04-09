@@ -13,10 +13,8 @@ angular.module('services', [])
 
     this.currentEventDetail = {}
 
-
-    console.log(this.eventsURL + "?timestamp=" +ts);
     // Try to load from API
-    $http.get(this.eventsURL)
+    $http.get(this.eventsURL + "?timestamp=" +ts)
       .success(function (json) {
         service.saveEventList(json);
         deferred.resolve(json);

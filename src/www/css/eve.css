@@ -694,13 +694,8 @@ header input.search {
   margin: 8px 0;
   font-size: 4em;
   background-color: white;
+  margin-top: 60px;
 }
-
-/**** Extra ***/
-.content .event-content .talks-day {
-  margin-bottom: 50px;
-}
-/************/
 
 
 .content .event-content .talks-day-title h3 {

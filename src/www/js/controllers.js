@@ -67,9 +67,6 @@ angular.module('controllers', [])
 
   this.showMenu = function(){
     var top = $ionicScrollDelegate.getScrollPosition().top - 10;
-    if (this.current === 'agenda') {
-      top += 50;
-    }
     this.menuStyle["top"] = top + "px";
     this.menuStyle["right"] = "0%";
     this.menuStyle["display"] = "block";
@@ -86,6 +83,11 @@ angular.module('controllers', [])
   this.setCurrent = function(location){
     this.current = location;
     this.hideMenu();
+    if (location !== "agenda"){
+      $timeout(function(){
+        $ionicScrollDelegate.scrollTo(0, 0);
+      },50)
+    }
   }
 
   this.loadSpeakers = function(){
