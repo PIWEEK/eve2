@@ -1,2 +1,0 @@
-Splash:
-sudo cordova plugin add https://github.com/apache/cordova-plugin-splashscreen.git
