@@ -709,6 +709,12 @@ header input.search {
   height: 85px;
   border-bottom: 1px solid white;
 }
+
+.content .event-content .favourites .talks-row .talks-row-hour {
+  height: 110px;
+}
+
+
 .content .event-content .talks-row .talks-row-content {
   display: inline-block;
   padding: 2%;
@@ -729,6 +735,12 @@ header input.search {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.content .event-content .talks-row .talks-row-content.talk-detail .talk-title {
+  white-space: normal;
+}
+
+
 
 /*** EXTRA ***/
 .content .event-content .talks-row .talks-row-content .talk-speaker-wrap{

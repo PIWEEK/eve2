@@ -1,25 +1,28 @@
 <div class="talks-track-title">
   <h2>Favourites</h2>
 </div>
-<div>
+<div class="favourites">
     <div ng-repeat="talk in (talks = (eventDetailCtrl.favourites.talks | orderBy:['day_num', 'hour']))">
       <div ng-show="$index === 0 || talk.day !== talks[$index -1].day" class="talks-day-title">
         <h3>{{talk.day}}</h3>
       </div>
-      <div class="talks-row favourite" ng-click="eventDetailCtrl.toggleTalk($index)">
+      <div class="talks-row favourite" ng-click="eventDetailCtrl.openTalk(talk)">
+
+
         <div class="talks-row-hour">{{talk.hour}}</div>
-        <div class="talks-row-content" ng-init="showDetail=false">
+        <div class="talks-row-content">
           <span class="talk-title">{{talk.track}}</span>
           <span class="talk-title">{{talk.name}}</span>
+          <div class="talk-speaker-wrap">
           <span class="talk-speaker" ng-repeat="speaker in talk.speakers">
-            <a href="#" ng-click="eventDetailCtrl.selectSpeaker(speaker); $event.stopPropagation();">{{eventDetailCtrl.speakers[speaker].name}}</a>
+            {{eventDetailCtrl.speakers[speaker].name}}<span ng-if="!$last">,&nbsp;</span>
           </span>
-          <div ng-show="$index == eventDetailCtrl.openedTalk" class="talk-abstract">{{talk.abstract}}</div>
+          </div>
           <div class="tagline">
             <div ng-repeat="tag in talk.tags" class="tag" style="border-left: 8px solid {{tag.color}};">{{tag.tag}}</div>
           </div>
         </div>
-        <div ng-hide="talk.break == true" class="talks-row-btn" ng-click="eventDetailCtrl.toggleFavourite(talk); $event.stopPropagation();"><i class="icon-heart"></i></div>
+        <div ng-hide="talk.break == true" class="talks-row-btn" ng-click="eventDetailCtrl.toggleFavourite(talk, day.name, $parent.$index); $event.stopPropagation();"><i class="icon-heart"></i></div>
       </div>
     </div>
 </div>
